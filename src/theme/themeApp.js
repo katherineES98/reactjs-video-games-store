@@ -10,7 +10,7 @@ export const themeApp = createTheme({
             main: '#543884'
         },
         tertiary:{
-            main: '#FFFFFF'
+            main: '#2c323a'
         },
         error: {
             main: red.A400
