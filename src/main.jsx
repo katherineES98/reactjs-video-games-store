@@ -6,6 +6,7 @@ import { GamesApp } from "./GamesApp";
 import { Provider } from "react-redux";
 import "./styles.css";
 import { store } from "./store";
+import 'animate.css';
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
