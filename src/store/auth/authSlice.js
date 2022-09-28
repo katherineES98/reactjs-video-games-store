@@ -4,7 +4,7 @@ export const authSlice = createSlice({
   name: "auth",
   //estado de la app
   initialState: {
-    status: "checking", // estados si esta autenticado o no
+    status: "not-authenticated", // estados si esta autenticado o no  //*checking
     uid: null,
     email: null,
     displayName: null,
@@ -16,7 +16,9 @@ export const authSlice = createSlice({
     //cerrar sesion
     logout: (state, payload) => {},
     //verificar si esta autenticado o no
-    checkingCredentials: (state) => {},
+    checkingCredentials: (state) => {
+      state.status='checking'
+    },
   },
 });
 export const { login, logout, checkingCredentials } = authSlice.actions; //reducer cada uno tendra acciones especificas
