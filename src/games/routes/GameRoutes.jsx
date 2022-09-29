@@ -10,10 +10,10 @@ import { WelcomePage } from "../pages/WelcomePage";
 export const GameRoutes = () => {
   return (
     <Routes>
-      <Route path="/games" element={<GamePage />} />
-      <Route path="/" element={<WelcomePage />} />
+      <Route path="/" element={<GamePage />} />
+      <Route path="/welcome" element={<WelcomePage />} />
       {/**si no estoy en la ruta anterior sera esta  */}
-      <Route path="/" element={<Navigate to="/" />} />
+      <Route path="/*" element={<Navigate to="/" />} />
     </Routes>
   );
 };

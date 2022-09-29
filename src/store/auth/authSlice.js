@@ -4,7 +4,7 @@ export const authSlice = createSlice({
   name: "auth",
   //estado de la app
   initialState: {
-    status: "not-authenticated", // estados si esta autenticado o no  //*checking
+    status: "checking", // estados si esta autenticado o no  //*checking
     uid: null,
     email: null,
     displayName: null,
