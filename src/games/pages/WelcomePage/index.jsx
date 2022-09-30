@@ -20,7 +20,7 @@ export const WelcomePage = () => {
         backgroundRepeat: "no-repeat",
       }}
     >
-      <NavBar />
+      <NavBar  />
 
       <Box
         component="main"

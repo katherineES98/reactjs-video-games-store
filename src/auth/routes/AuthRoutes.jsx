@@ -1,12 +1,14 @@
 import React from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import { LoginPage, RegisterPage } from '../pages'
+//import { WelcomePage } from '../pages/WelcomePage'
 
 export const AuthRoutes = () => {
   return (
    <Routes>
        <Route  path='login' element={<LoginPage/>}/>
        <Route  path='register' element={<RegisterPage/>}/>
+    
      {/** ruta si no estoy en ninguna de las anteriores  */}
      <Route path='/*' element={<Navigate to='/auth/login'/>} />
 

@@ -75,3 +75,9 @@ export const loginEmailPassword = async({ email,password,})=>{
 
 
 }
+
+
+//funcion de cerrar sesion 
+export const logoutFirebase = async () => {
+  return await FirebaseAuth.signOut()  // esto cierra google, firebase etc 
+}

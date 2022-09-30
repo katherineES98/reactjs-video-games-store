@@ -11,7 +11,8 @@ export const GameRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<GamePage />} />
-      <Route path="/welcome" element={<WelcomePage />} />
+      //!DUDA de rutas
+       {/* <Route path="/*" element={<WelcomePage />} /> */}
       {/**si no estoy en la ruta anterior sera esta  */}
       <Route path="/*" element={<Navigate to="/" />} />
     </Routes>

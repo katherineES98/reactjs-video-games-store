@@ -1,6 +1,22 @@
-import { Typography } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import React from "react";
+import { NavBar } from "../components";
 
 export const GamePage = () => {
-  return <Typography>ESTE ES MI HOME </Typography>;
+  return (
+   <Grid container >
+  
+   <NavBar />
+   <Grid component='main'>
+   <Typography>ESTE ES MI HOME </Typography>
+    </Grid>
+  
+   </Grid>
+
+  
+  
+ 
+  
+  
+  )
 };

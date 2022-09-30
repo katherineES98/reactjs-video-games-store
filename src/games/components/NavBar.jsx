@@ -1,20 +1,22 @@
-import {  MenuOutlined } from "@mui/icons-material";
-import {
-  AppBar,
-  Button,
-  Grid,
-  IconButton,
-  Toolbar,
- 
-} from "@mui/material";
+
+import {AppBar,Button,Grid,IconButton,Toolbar,Typography} from "@mui/material";
 import { NavLink } from "react-router-dom";
+import { LogoutOutlined, MenuOutlined } from '@mui/icons-material';
+import { useDispatch } from "react-redux";
+import { startLogout } from "../../store/auth";
 
 export const NavBar = () => {
+   const dispatch= useDispatch();
+  const onLogout =()=>{
+    // console.log('logout')
+     dispatch(startLogout())
+  }
+
   return (
     <AppBar 
-    position="fixed" 
+    position="fixed"
     sx={{ 
-    backgroundColor: "secondary.tranparent",
+    backgroundColor: "secondary.main",
     boxShadow: 'none'
     
     }}>
@@ -49,6 +51,15 @@ export const NavBar = () => {
               Register
             </NavLink>
           </Button>
+     
+               
+
+                <IconButton color="inherit"
+                   onClick={ onLogout}  
+                >
+                    <LogoutOutlined />
+                </IconButton>
+         
         </Grid>
       </Toolbar>
     </AppBar>
