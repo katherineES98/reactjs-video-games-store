@@ -2,16 +2,19 @@
 import {AppBar,Button,Grid,IconButton,Toolbar,Typography} from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { LogoutOutlined, MenuOutlined } from '@mui/icons-material';
-import { useDispatch } from "react-redux";
-import { startLogout } from "../../store/auth";
+import { useDispatch, useSelector } from "react-redux";
+import { useCheckAuth } from "../../hook";
+import { LinksUser } from "./LinksUser";
+import { LinksOnAuth } from "./LinksOnAuth";
+
 
 export const NavBar = () => {
-   const dispatch= useDispatch();
-  const onLogout =()=>{
-    // console.log('logout')
-     dispatch(startLogout())
-  }
+  
 
+  //const status = useCheckAuth();
+  const {displayName, email}=useSelector(state=>state.auth)
+ 
+  const status = useCheckAuth();
   return (
     <AppBar 
     position="fixed"
@@ -35,31 +38,21 @@ export const NavBar = () => {
           justifyContent="end"
           alignItems="center"
         >
-          <Button variant="text" color="inherit" >
-            <NavLink
-              to="/auth/login"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              Login
-            </NavLink>
-          </Button>
-          <Button variant="text" color="inherit">
-            <NavLink
-              to="/auth/register"
-              style={{ textDecoration: "none", color: "inherit" }}
-            >
-              Register
-            </NavLink>
-          </Button>
-     
-               
+          {/* enlaces  */}
+          {
+           (status ==='authenticated')
+           ?   <LinksUser />
+           :   <LinksOnAuth />
+          }
 
-                <IconButton color="inherit"
-                   onClick={ onLogout}  
-                >
-                    <LogoutOutlined />
-                </IconButton>
-         
+        <Typography variant='h6' noWrap component='div'> 
+        { (displayName)
+          ? displayName
+          : email
+        
+        }
+         </Typography>
+
         </Grid>
       </Toolbar>
     </AppBar>

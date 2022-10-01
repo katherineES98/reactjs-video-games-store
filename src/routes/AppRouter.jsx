@@ -27,6 +27,7 @@ export const AppRouter = () => {
            ? <Route path='/*' element={<GameRoutes/>}  />
            :  <Route path='/auth/*' element={<AuthRoutes/>} />
           }
+
 {/*         
         <Route path='/*' element={ <Navigate to='/welcome' />} /> */}
   <Route path="/*" element={<WelcomePage />} />
