@@ -12,7 +12,7 @@ export const NavBar = () => {
   
 
   //const status = useCheckAuth();
-  const {displayName, email}=useSelector(state=>state.auth)
+  const {displayName}=useSelector(state=>state.auth)
  
   const status = useCheckAuth();
   return (
@@ -46,11 +46,7 @@ export const NavBar = () => {
           }
 
         <Typography variant='h6' noWrap component='div'> 
-        { (displayName)
-          ? displayName
-          : email
-        
-        }
+        { displayName}
          </Typography>
 
         </Grid>
