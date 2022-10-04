@@ -19,7 +19,7 @@ export const gameSlice = createSlice({
     setPage:(state, action)=>{
       state.page = action.payload.page;
     },
-    setSearchGames:(state, action)=>{
+    setSearchGames:(state, action)=>{//insertar  la busqueda
       state.searchGames = action.payload.searchGames;
     },
   },

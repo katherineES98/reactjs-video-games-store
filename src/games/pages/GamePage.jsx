@@ -33,7 +33,7 @@ export const GamePage = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     getDataGame()
-  }, []);
+  }, [searchGames]);
 
   return (
     <>
@@ -45,7 +45,7 @@ export const GamePage = () => {
       >
         <NavBar />
 
-        <SearchGames />
+        <SearchGames getDataGame={getDataGame}/>
         <h1>games</h1>
 
         <ul>
