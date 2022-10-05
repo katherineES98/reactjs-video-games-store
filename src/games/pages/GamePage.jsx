@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Card,
   CardActionArea,
@@ -12,6 +13,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getGames } from "../../store/game";
 import { NavBar, SearchGames } from "../components";
+import { CardGames } from "../components/CardGames";
+//import { CardPrueba } from "../components/CardPrueba";
 
 //import { makeStyles } from '@material-ui/core/styles';
 //import Card from '@material-ui/core/Card';
@@ -24,40 +27,73 @@ import { NavBar, SearchGames } from "../components";
 
 export const GamePage = () => {
   const { page, games,searchGames } = useSelector((state) => state.games);
-  console.log({page,games})
-  
+ console.log("holaa",page)
   const getDataGame=()=>{
     dispatch(getGames(page,searchGames ));
+    //console.log(page)
+  }
+  const getDataGameBack=()=>{
+    //console.log('hols')
+   // console.log("hola",dataForPage)
+
+    dispatch(getGames(page-20,searchGames ));
+
   }
   
+  //console.log("-----------------")
   const dispatch = useDispatch();
   useEffect(() => {
+    //console.log("esta iniio",page)
     getDataGame()
+   // 
   }, [searchGames]);
+ 
+  // useEffect(() => {
+  //   //console.log("esta iniio",page)
+  
+  //   getDataGameBack()
+  // }, [searchGames]);
 
   return (
     <>
-      <Grid
-        container
-        sx={{ marginTop: 15}}
-        //  justifyContent="center"
-        // alignItems="center"
-      >
-        <NavBar />
 
-        <SearchGames getDataGame={getDataGame}/>
-        <h1>games</h1>
 
-        <ul>
-          {games.map((game) => (
-            <li key={game.gameID}>{game.internalName}</li>
-          ))}
-        </ul>
-      </Grid>
+     <Grid container sx={{ marginTop: 15}} >
+     <NavBar />
 
-      <Grid>   <button onClick={() => getDataGame()}>Next</button>
+<SearchGames getDataGame={getDataGame}/>
+
+     </Grid>
+
+
+
+ {/* <Box width='300px' 
+//  display: flex;
+// 
+//  sx={{display:'flex',flex-direction: 'column'}}
+direction="row" 
+ > */}
+ <Grid sx={{marginTop: 10}} container justifyContent="center">
+    {
+    games.map((game) => (
      
+      <Box width='300px'  >
+      <CardGames game={game}  />
+      </Box>
+    ))
+    }
+
+<Grid container>
+        <button onClick={() => getDataGame()}>Next</button>
       </Grid>
+      <Grid container>
+        <button onClick={() => getDataGameBack()}>back</button>
+      </Grid>
+    </Grid>
+
+ {/* <CardGames games={games} getDataGame={getDataGame} getDataGameBack={getDataGameBack} /> */}
+ {/* </Box> */}
+      
     </>
   );
 };

@@ -4,6 +4,7 @@ const initialState = {
   page: 10,
   games: [],
   searchGames: "batman",
+  //dataForPage:10
 };
 
 export const gameSlice = createSlice({
@@ -18,6 +19,7 @@ export const gameSlice = createSlice({
     },
     setPage:(state, action)=>{
       state.page = action.payload.page;
+      //state.dataForPage = action.payload.page;
     },
     setSearchGames:(state, action)=>{//insertar  la busqueda
       state.searchGames = action.payload.searchGames;

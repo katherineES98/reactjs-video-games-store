@@ -31,7 +31,16 @@ export const NavBar = () => {
         >
           <MenuOutlined />
         </IconButton>
+        <Grid 
+   container 
+   alignItems="start"
+   
+   >
+    <Typography variant='h6' noWrap component='div'> 
+        { displayName}
+         </Typography>
 
+   </Grid>
         <Grid
           container
           direction="row"
@@ -44,12 +53,9 @@ export const NavBar = () => {
            ?   <LinksUser />
            :   <LinksOnAuth />
           }
-
-        <Typography variant='h6' noWrap component='div'> 
-        { displayName}
-         </Typography>
-
         </Grid>
+  
+    
       </Toolbar>
     </AppBar>
   );

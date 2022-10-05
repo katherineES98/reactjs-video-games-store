@@ -10,3 +10,14 @@
    
 
 }
+
+
+/* .clumnas{
+display: flex;
+style: {{textAlign: 'center'}} 
+flex-direction:column;
+} */
+
+.form-search{
+   text-align: center !important;
+}
