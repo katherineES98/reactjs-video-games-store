@@ -1,4 +1,3 @@
-
 import React from "react";
 import {
   Button,
@@ -8,61 +7,52 @@ import {
   CardContent,
   CardMedia,
   Grid,
-
   Typography,
 } from "@mui/material";
 //import { makeStyles } from '@material-ui/core/styles';
-import { styled, alpha, makeStyles } from '@mui/material/styles';
-
-
-
+import { styled, alpha, makeStyles } from "@mui/material/styles";
 
 export const CardGames = ({ game }) => {
-  
   return (
     <>
-<Card
- className="style-card"
- style={{ 
-  boxShadow:  '0px 1px 10px rgba(1,2,2,2.2)', cursor: "default", transition: "all 400ms ease-out"}}
-   sx={ {margin:1 }}
-   >
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          alt="Contemplative Reptile"
-          height="200"
-          image={game.thumb}
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="p" component="p">
-          {game.internalName}
-          </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-          cheapest: {game.cheapest}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
-        </Button>
-        <Button size="small" color="primary">
-          Learn More
-        </Button>
-      </CardActions>
-    </Card>
-
- 
+      <Card
+        className="style-card"
+        style={{
+          boxShadow: "0px 1px 10px rgba(1,2,2,2.2)",
+          cursor: "default",
+          transition: "all 400ms ease-out",
+        }}
+        sx={{ margin: 1 }}
+      >
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            alt="Contemplative Reptile"
+            height="200"
+            image={game.thumb}
+            title="Contemplative Reptile"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="p" component="p">
+              {game.internalName}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              cheapest: {game.cheapest}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <Button size="small" color="primary">
+            Save
+          </Button>
+          <Button size="small" color="primary">
+            See more
+          </Button>
+        </CardActions>
+      </Card>
     </>
   );
 };
-
-
-
-
-
 
 // <Card
 //    sx={ {maxWidth: 300, margin:1 }}
@@ -193,9 +183,8 @@ export const CardGames = ({ game }) => {
 //       </CardActions>
 //     </Card>
 
-
-
-{/* <Grid container sx={{ marginTop: 2 }}>
+{
+  /* <Grid container sx={{ marginTop: 2 }}>
 {games.map((game) => (
   <Card key={game.gameID}
   sx={ {minWidth: 350, margin:1 }}
@@ -245,4 +234,5 @@ export const CardGames = ({ game }) => {
 
 
 
-</Grid> */}
+</Grid> */
+}
