@@ -1,17 +1,16 @@
 import { Pagination } from "@mui/material";
 import React from "react";
-//import { makeStyles } from '@material-ui/core/styles';
-//import Pagination from '@material-ui/lab/Pagination';
-//import { makeStyles } from '@mui/material';
+import { dataForPage } from "../../store/game";
 
-export const PaginacionGame = () => {
+
+export const PaginacionGame = ({numberOfPages,eventPage}) => {
   return (
     <div className="pagination">
       <Pagination
-        // sx={{ marginLeft: 50 }}
-        count={10}
+        count={numberOfPages/dataForPage}
         variant="outlined"
         color="secondary"
+        onChange={(value,index)=>{eventPage(index)}}
       />
     </div>
   );
