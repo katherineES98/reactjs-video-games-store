@@ -1,4 +1,4 @@
-import { Search } from "@mui/icons-material";
+import { FullscreenExit, Search } from "@mui/icons-material";
 import { Button, Grid, TextField } from "@mui/material";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,6 +7,8 @@ import { reset, setPage, setSearchGames } from "../../store/game";
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
+//import '../pages/GamePage/styles.css'
+
 export const SearchGames = ({ getDataGame }) => {
   const textSearch = useSelector((state) => state.games.searchGames);
   const dispatch = useDispatch();
@@ -27,22 +29,27 @@ export const SearchGames = ({ getDataGame }) => {
  
 
   return (
-    <form   className="form-search" onSubmit={onSearchSubmit}>
-      <Grid container >
-        <Grid item >
+    <form  onSubmit={onSearchSubmit}>
+      <Grid container  >
+        <Grid item   className="input-games">
           <TextField
-            
-            label="Search input"
+          
+         
+           label="Game search"
             variant="outlined"
             type="text"
             name="searchText"
             placeholder="Buscar"  
             value={searchText}
             onChange={onInputChange}
-            
-            sx={{width:500 }}
-
+            sx={{ width:500}}
           />
+          <Button
+          className="ov-btn-slide-left"
+          sx={{height: 42, marginLeft:1}}
+          variant="outlined" color="primary" href="#outlined-buttons">
+          Search
+</Button>
         </Grid>
 {/* 
         <Button sx={{ height: 35, mt: 2 }} variant="contained" color="primary">

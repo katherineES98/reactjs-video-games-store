@@ -11,9 +11,11 @@ import {
 } from "@mui/material";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getGames } from "../../store/game";
-import { NavBar, SearchGames } from "../components";
-import { CardGames } from "../components/CardGames";
+import { getGames } from "../../../store/game";
+import { NavBar, SearchGames } from "../../components";
+import { CardGames } from "../../components/CardGames";
+import "./styles.css";
+
 //import { CardPrueba } from "../components/CardPrueba";
 
 //import { makeStyles } from '@material-ui/core/styles';
@@ -58,7 +60,7 @@ export const GamePage = () => {
     <>
 
 
-     <Grid container sx={{ marginTop: 15}} >
+     <Grid  container className="input-search"   >
      <NavBar />
 
 <SearchGames getDataGame={getDataGame}/>
@@ -77,7 +79,7 @@ direction="row"
     {
     games.map((game) => (
      
-      <Box width='300px'  >
+      <Box className="card-pruea" width='300px'  >
       <CardGames game={game}  />
       </Box>
     ))

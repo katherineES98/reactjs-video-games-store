@@ -8,12 +8,23 @@ import {
   CardContent,
   CardMedia,
   Grid,
+
   Typography,
 } from "@mui/material";
+//import { makeStyles } from '@material-ui/core/styles';
+import { styled, alpha, makeStyles } from '@mui/material/styles';
+
+
+
+
 export const CardGames = ({ game }) => {
+  
   return (
     <>
 <Card
+ className="style-card"
+ style={{ 
+  boxShadow:  '0px 1px 10px rgba(1,2,2,2.2)', cursor: "default", transition: "all 400ms ease-out"}}
    sx={ {margin:1 }}
    >
       <CardActionArea>
