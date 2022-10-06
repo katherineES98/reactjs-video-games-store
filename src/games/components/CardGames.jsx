@@ -8,11 +8,11 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
-
+import { Link } from "react-router-dom";
 const defaultImage =
   "https://i.pcmag.com/imagery/roundups/38133..v1594409362.jpg";
 
-export const CardGames = ({  thumb, cheapest,external }) => {
+export const CardGames = ({  thumb, cheapest,external,gameID }) => {
   const [image, setImage] = useState(thumb || defaultImage);
 
   const setDefaultImage = () => {
@@ -49,11 +49,11 @@ export const CardGames = ({  thumb, cheapest,external }) => {
           </CardContent>
         </CardActionArea>
         <CardActions>
+          <Link to={`/${gameID}`}  size="small" color="primary">
+          See more  
+          </Link>
           <Button size="small" color="primary">
-            Save
-          </Button>
-          <Button size="small" color="primary">
-            See more
+           Save
           </Button>
         </CardActions>
       </Card>

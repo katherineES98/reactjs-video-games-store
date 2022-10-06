@@ -10,6 +10,8 @@ import Stack from "@mui/material/Stack";
 import CircularProgress from "@mui/material/CircularProgress";
 import "./styles.css";
 
+
+
 export const GamePage = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
