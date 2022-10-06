@@ -20,6 +20,7 @@ export const SearchGames = ({ getDataGame }) => {
     event.preventDefault();
     //console.log({ searchText });
     // dispatch(setPage({page: 10}));
+ 
     dispatch(reset());
     dispatch(setSearchGames({ searchGames: searchText }));
     // getDataGame();
@@ -44,12 +45,15 @@ export const SearchGames = ({ getDataGame }) => {
             onChange={onInputChange}
             sx={{ width:500}}
           />
-          <Button
+          <Button 
+           type="submit"
           className="ov-btn-slide-left"
           sx={{height: 42, marginLeft:1}}
-          variant="outlined" color="primary" href="#outlined-buttons">
+          variant="outlined" color="primary" >
           Search
-</Button>
+ </Button>
+
+
         </Grid>
 {/* 
         <Button sx={{ height: 35, mt: 2 }} variant="contained" color="primary">
