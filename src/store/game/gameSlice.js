@@ -4,7 +4,7 @@ const initialState = {
   page: 10,
   games: [],
   searchGames: "batman",
-  //dataForPage:10
+  isLoading: false,
 };
 
 export const gameSlice = createSlice({
@@ -15,18 +15,19 @@ export const gameSlice = createSlice({
     setGames: (state, action) => {
       // console.log(action )
       state.games = action.payload.games;
-     
     },
-    setPage:(state, action)=>{
+    setPage: (state, action) => {
       state.page = action.payload.page;
-      //state.dataForPage = action.payload.page;
     },
-    setSearchGames:(state, action)=>{//insertar  la busqueda
+    setSearchGames: (state, action) => {
+      //insertar  la busqueda
       state.searchGames = action.payload.searchGames;
     },
+    setIsLoading: (state, action) => {
+      state.isLoading = action.payload.isLoading;
+    },
   },
-
- 
 });
 
-export const { reset,setGames, setPage,setSearchGames} = gameSlice.actions;
+export const { reset, setGames, setPage, setSearchGames, setIsLoading } =
+  gameSlice.actions;

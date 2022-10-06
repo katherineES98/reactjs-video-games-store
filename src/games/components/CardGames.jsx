@@ -12,7 +12,7 @@ import {
 const defaultImage =
   "https://i.pcmag.com/imagery/roundups/38133..v1594409362.jpg";
 
-export const CardGames = ({ internalName, thumb, cheapest,external }) => {
+export const CardGames = ({  thumb, cheapest,external }) => {
   const [image, setImage] = useState(thumb || defaultImage);
 
   const setDefaultImage = () => {

@@ -5,12 +5,17 @@ import { dataForPage, getGames } from "../../../store/game";
 import { NavBar, SearchGames } from "../../components";
 import { CardGames } from "../../components/CardGames";
 import { PaginacionGame } from "../../components/PaginacionGame";
+import Stack from "@mui/material/Stack";
+
+import CircularProgress from '@mui/material/CircularProgress';
 import "./styles.css";
 
 export const GamePage = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
-  const { page, games, searchGames } = useSelector((state) => state.games);
+  const { page, games, searchGames, isLoading } = useSelector(
+    (state) => state.games
+  );
 
   const getDataGame = () => {
     dispatch(getGames(page, searchGames));
@@ -49,7 +54,11 @@ export const GamePage = () => {
 
         <SearchGames getDataGame={getDataGame} />
       </Grid>
-
+      {isLoading  && (
+        <Stack justifyContent="center"  sx={{ color: 'grey.500',marginTop: 10  }} spacing={2} direction="row">
+           <CircularProgress color="secondary" />
+        </Stack>
+      )}
       <Grid sx={{ marginTop: 10 }} container justifyContent="center">
         {getDataForPage(games, currentPage).map((game) => (
           <Box key={game.gameID} className="card-pruea" width="300px">
