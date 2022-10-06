@@ -7,7 +7,7 @@ import { CardGames } from "../../components/CardGames";
 import { PaginacionGame } from "../../components/PaginacionGame";
 import Stack from "@mui/material/Stack";
 
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from "@mui/material/CircularProgress";
 import "./styles.css";
 
 export const GamePage = () => {
@@ -54,21 +54,39 @@ export const GamePage = () => {
 
         <SearchGames getDataGame={getDataGame} />
       </Grid>
-      {isLoading  && (
-        <Stack justifyContent="center"  sx={{ color: 'grey.500',marginTop: 10  }} spacing={2} direction="row">
-           <CircularProgress color="secondary" />
+      {isLoading && (
+        <Stack
+          justifyContent="center"
+          sx={{ color: "grey.500", marginTop: 10 }}
+          spacing={2}
+          direction="row"
+        >
+          <CircularProgress color="secondary" />
         </Stack>
       )}
+
+      {games.length === 0 && !isLoading && (
+        <Stack
+          justifyContent="center"
+          sx={{ color: "grey.500", marginTop: 10 }}
+          spacing={2}
+          direction="row"
+        >
+          <p>There are no results for your search </p>
+        </Stack>
+      )}
+
       <Grid sx={{ marginTop: 10 }} container justifyContent="center">
         {getDataForPage(games, currentPage).map((game) => (
           <Box key={game.gameID} className="card-pruea" width="300px">
             <CardGames {...game} />
           </Box>
         ))}
-
-        <Grid container>
-          <PaginacionGame eventPage={setCurrentPage} numberOfPages={page} />
-        </Grid>
+        {games.length > 0 && (
+          <Grid container>
+            <PaginacionGame eventPage={setCurrentPage} numberOfPages={page} />
+          </Grid>
+        )}
       </Grid>
     </>
   );
