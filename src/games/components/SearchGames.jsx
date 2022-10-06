@@ -22,7 +22,9 @@ export const SearchGames = () => {
   return (
     <form onSubmit={onSearchSubmit}>
       <Grid container>
+
         <Grid item className="input-games">
+       
           <TextField
             label="Game search"
             variant="outlined"
@@ -31,7 +33,7 @@ export const SearchGames = () => {
             placeholder="Buscar"
             value={searchText}
             onChange={onInputChange}
-            sx={{ width: 500 }}
+            
           />
           <Button
             disabled={searchText === "" ? true : false}

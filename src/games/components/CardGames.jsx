@@ -12,7 +12,7 @@ import {
 const defaultImage =
   "https://i.pcmag.com/imagery/roundups/38133..v1594409362.jpg";
 
-export const CardGames = ({ internalName, thumb, cheapest }) => {
+export const CardGames = ({ internalName, thumb, cheapest,external }) => {
   const [image, setImage] = useState(thumb || defaultImage);
 
   const setDefaultImage = () => {
@@ -40,8 +40,8 @@ export const CardGames = ({ internalName, thumb, cheapest }) => {
             onError={setDefaultImage}
           />
           <CardContent>
-            <Typography gutterBottom variant="p" component="p">
-              {internalName}
+            <Typography gutterBottom variant="p" component="p" mr="5">
+              {external}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
               cheapest: {cheapest}
