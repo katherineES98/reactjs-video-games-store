@@ -1,28 +1,35 @@
-
-import {AppBar,Button,Grid,IconButton,Toolbar,Typography} from "@mui/material";
+import {
+  AppBar,
+  Button,
+  Grid,
+  IconButton,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import { NavLink } from "react-router-dom";
-import { LogoutOutlined, MenuOutlined } from '@mui/icons-material';
+import { LogoutOutlined, MenuOutlined } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { useCheckAuth } from "../../hook";
 import { LinksUser } from "./LinksUser";
 import { LinksOnAuth } from "./LinksOnAuth";
 
-
 export const NavBar = () => {
-  
-
   //const status = useCheckAuth();
-  const {displayName}=useSelector(state=>state.auth)
- 
+  const { displayName } = useSelector((state) => state.auth);
+
   const status = useCheckAuth();
   return (
-    <AppBar 
-    position="fixed"
-    sx={{ 
-    backgroundColor: "secondary.main",
-    boxShadow: 'none'
-    
-    }}>
+    <AppBar
+      position="fixed"
+      sx={{
+        backgroundColor:
+          status === "authenticated"
+            ? "secondary.main"
+            : "secondary.tranparent",
+
+        boxShadow: "none",
+      }}
+    >
       <Toolbar>
         <IconButton
           color="inherit"
@@ -31,16 +38,11 @@ export const NavBar = () => {
         >
           <MenuOutlined />
         </IconButton>
-        <Grid 
-   container 
-   alignItems="start"
-   
-   >
-    <Typography variant='h6' noWrap component='div'> 
-        { displayName}
-         </Typography>
-
-   </Grid>
+        <Grid container alignItems="start">
+          <Typography variant="h6" noWrap component="div">
+            {displayName}
+          </Typography>
+        </Grid>
         <Grid
           container
           direction="row"
@@ -48,14 +50,8 @@ export const NavBar = () => {
           alignItems="center"
         >
           {/* enlaces  */}
-          {
-           (status ==='authenticated')
-           ?   <LinksUser />
-           :   <LinksOnAuth />
-          }
+          {status === "authenticated" ? <LinksUser /> : <LinksOnAuth />}
         </Grid>
-  
-    
       </Toolbar>
     </AppBar>
   );
