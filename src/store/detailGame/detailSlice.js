@@ -1,29 +1,26 @@
 
-// import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
-// export const detailGamesSlice = createSlice({
-//   name: 'detailGames',
-//     initialState: {
-//       game: [],
-//       isLoadingDetail: false,
-//     }, 
-//     reducers: {
-//       setGamesDetail: (state, action) => {
+export const detailGamesSlice = createSlice({
+  name: 'detailGames',
+    initialState: {
+      game: [],
+      isLoadingDetail: false,
+    }, 
+    reducers: {
+      setGamesDetail: (state, action) => {
        
-//         state.game = action.payload.game;
-//       },
-//       setIsLoadingDetail: (state, action) => {
-//         state.isLoadingDetail = action.payload.isLoadingDetail;
-//       },
+        state.game = action.payload.game;
+      },
+      setIsLoadingDetail: (state, action) => {
+        state.isLoadingDetail = action.payload.isLoadingDetail;
+      },
    
-//    }
-// });
+   }
+});
 
 
-// export const { setGamesDetail,setIsLoadingDetail } =  detailGamesSlice.actions;
-
-
-
+export const { setGamesDetail,setIsLoadingDetail } =  detailGamesSlice.actions;
 
 
 
@@ -32,18 +29,21 @@
 
 
 
-// import { createSlice } from '@reduxjs/toolkit';
 
-// export const templateSlice = createSlice({
-//   name: 'template',
-//     initialState: {
+
+
+import { createSlice } from '@reduxjs/toolkit';
+
+export const templateSlice = createSlice({
+  name: 'template',
+    initialState: {
        
 
-//     }, 
-//     reducers: {
+    }, 
+    reducers: {
       
-//    }
-// });
+   }
+});
 
 
-// export const { increment } =  templateSlice.actions;
+export const { increment } =  templateSlice.actions;

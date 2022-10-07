@@ -12,7 +12,7 @@ export const GameRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<GamePage />} />
-      <Route path="/:id" element={<GameDetails />} />
+      <Route path="/detail/:id" element={<GameDetails />} />
    
       //!DUDA de rutas
        {/* <Route path="/*" element={<WelcomePage />} /> */}

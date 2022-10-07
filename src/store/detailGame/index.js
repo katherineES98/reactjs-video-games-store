@@ -1,2 +1,2 @@
-// export * from './detailSlice'
-// export * from './thunks'
+export * from './detailSlice'
+export * from './thunks'

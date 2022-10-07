@@ -2,7 +2,7 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 
 export const GameDetails = () => {
- // console.log(useParams())
+ console.log(useParams())
   const{id}= useParams()
   console.log(id)
   return (

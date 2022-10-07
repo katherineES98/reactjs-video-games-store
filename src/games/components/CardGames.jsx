@@ -49,7 +49,7 @@ export const CardGames = ({  thumb, cheapest,external,gameID }) => {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Link to={`/${gameID}`}  size="small" color="primary">
+          <Link to={`/detail/${gameID}`}  size="small" color="primary">
           See more  
           </Link>
           <Button size="small" color="primary">
