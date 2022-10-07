@@ -13,6 +13,7 @@ import "./styles.css";
 
 
 export const GamePage = () => {
+  const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
 
   const { page, games, searchGames, isLoading } = useSelector(
@@ -35,7 +36,7 @@ export const GamePage = () => {
     }
   };
 
-  const dispatch = useDispatch();
+
   useEffect(() => {
     getDataGame();
   }, [searchGames]);
