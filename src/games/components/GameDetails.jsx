@@ -11,13 +11,8 @@ import {
 import React from "react";
 import { getDate } from "../../const";
 
-
-
-export const GameDetails = ({game}) => {
-
-
-  //console.log(useParams())
-
+export const GameDetails = ({ game, stores }) => {
+  
   return (
     <>
       <Grid className="container-detail" container sx={{ mt: 10 }}>
@@ -46,7 +41,9 @@ export const GameDetails = ({game}) => {
                 <Typography>Price: ${game.cheapestPriceEver.price},</Typography>
               </div>
               <div className="centrado">
-                <Typography>date: {getDate(new Date(game.cheapestPriceEver.date))}</Typography>
+                <Typography>
+                  date: {getDate(new Date(game.cheapestPriceEver.date))}
+                </Typography>
               </div>
             </div>
           </Box>

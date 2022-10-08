@@ -12,8 +12,8 @@ export const DetailGamePage = () => {
   const { gameID } = useParams();
   // console.log(id);
   const dispatch = useDispatch();
-  const { game, isLoadingDetail } = useSelector((state) => state.detail);
-
+  const { game, isLoadingDetail,stores } = useSelector((state) => state.detail);
+ console.log({stores})
   //console.log(" estas en este juego al hacer click", game, "con el id", id);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export const DetailGamePage = () => {
           <CircularProgress color="secondary" />
         </Stack>
       ) : (
-        <GameDetails game={game} />
+        <GameDetails game={game} stores={stores} />
       )}
     </>
   );

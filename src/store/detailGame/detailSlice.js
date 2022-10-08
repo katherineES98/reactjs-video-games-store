@@ -4,6 +4,7 @@ export const detailGamesSlice = createSlice({
   initialState: {
     game: [],
     isLoadingDetail: true,
+    stores: [],
     // idGame:null
   },
   reducers: {
@@ -14,7 +15,10 @@ export const detailGamesSlice = createSlice({
     setIsLoadingDetail: (state, action) => {
       state.isLoadingDetail = action.payload.isLoadingDetail;
     },
+    setStores: (state, action) => {
+      state.stores = action.payload.stores;
+    },
   },
 });
 
-export const { setGamesDetail, setIsLoadingDetail } = detailGamesSlice.actions;
+export const { setGamesDetail, setIsLoadingDetail,setStores } = detailGamesSlice.actions;
