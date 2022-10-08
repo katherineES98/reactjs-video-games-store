@@ -1,4 +1,5 @@
-import { Typography } from "@mui/material";
+import { CircularProgress, Typography } from "@mui/material";
+import { Stack } from "@mui/system";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -24,7 +25,14 @@ export const DetailGamePage = () => {
       {/* <h1>DetailGamePage</h1> */}
       <NavBar />
       {isLoadingDetail ? (
-        <Typography>cargando.....</Typography>
+        <Stack
+          justifyContent="center"
+          sx={{ color: "grey.500", marginTop: 10 }}
+          spacing={2}
+          direction="row"
+        >
+          <CircularProgress color="secondary" />
+        </Stack>
       ) : (
         <GameDetails game={game} />
       )}
