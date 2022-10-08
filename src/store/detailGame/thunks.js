@@ -12,9 +12,7 @@ export const getGame = (id) => {
       dispatch(setGamesDetail({ game: data }));
     } catch (error) {
       console.log(error);
-    } finally {
-      dispatch(setIsLoadingDetail({ isLoadingDetail: false }));
-    }
+    } 
   };
 };
 
@@ -23,9 +21,10 @@ export const getStores = () => {
     try {
       dispatch(setIsLoadingDetail({ isLoadingDetail: true }));
       const { data } = await cheapSharkGameApi.get(`/stores`);
-      console.log(data);
+      console.log("este es data del store  ",{data});
 
       dispatch(setStores({ stores: data }));
+      
     } catch (error) {
       console.log(error);
     } finally {
