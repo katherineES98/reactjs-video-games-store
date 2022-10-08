@@ -7,15 +7,21 @@ import { setGamesDetail } from "./detailSlice";
 export const getGame = (id) => {
   return async (dispatch) => {
    
-
-        //https://www.cheapshark.com/api/1.0/games?&steamAppID=1611850
+    try{
+      //https://www.cheapshark.com/api/1.0/games?&steamAppID=1611850
      // dispatch(setIsLoading({ isLoading: true }));
-      const {data} = await cheapSharkGameApi.get(
-        `/games?id=${id}`
-      );
-     //console.log(data);
+     const {data} = await cheapSharkGameApi.get(
+      `/games?id=${id}`
+    );
+   //console.log(data);
+   
+  
 
-     dispatch(setGamesDetail({ game: data }));
+   dispatch(setGamesDetail({ game: data }));
+    }catch(error){
+    console.log(error)
+    }
+  
     
   };
 };

@@ -1,0 +1,60 @@
+.img-detail {
+  object-fit: cover;
+  background-size: cover;
+  width: 100px;
+  height: 100px;
+}
+.contenedor {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+/* .centrado{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
+.image-container {
+  display: flex;
+  align-items: center;
+}
+
+.text-title {
+  text-align: center;
+  font-size: 35px !important;
+}
+
+.container-detail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.css-ahj2mt-MuiTypography-root {
+  font-weight: bold !important;
+}
+
+.text-date {
+  padding-left: 10px;
+  font-size: 18px !important;
+}
+.text-price {
+  padding-left: 10px;
+  font-size: 18px !important;
+}
+
+/* .css-4go8ts-MuiPaper-root-MuiCard-root{
+    margin-top: 15px;
+ 
+    
+} */
+.title-store {
+  font-size: 20px !important;
+  padding-left: 20px;
+  margin-top: 20px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

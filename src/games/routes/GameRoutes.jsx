@@ -1,6 +1,7 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { GameDetails } from "../components/GameDetails";
+import { DetailGamePage } from "../pages/DetailGamePage";
 import { GamePage } from "../pages/GamePage";
 //import { WelcomePage } from "../pages/WelcomePage";
 
@@ -12,7 +13,7 @@ export const GameRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<GamePage />} />
-      <Route path="/detail/:id" element={<GameDetails />} />
+      <Route path="/detail/:id" element={<DetailGamePage />} />
    
       //!DUDA de rutas
        {/* <Route path="/*" element={<WelcomePage />} /> */}
