@@ -1,27 +1,18 @@
 import { cheapSharkGameApi } from "../../api/cheapSharkGameApi";
-import { setGamesDetail } from "./detailSlice";
-
-//import { setGames, setIsLoading, setPage } from "./gameSlice";
-//export const dataForPage = 10;
+import { setGamesDetail, setIsLoadingDetail } from "./detailSlice";
 
 export const getGame = (id) => {
   return async (dispatch) => {
-   
-    try{
-      //https://www.cheapshark.com/api/1.0/games?&steamAppID=1611850
-     // dispatch(setIsLoading({ isLoading: true }));
-     const {data} = await cheapSharkGameApi.get(
-      `/games?id=${id}`
-    );
-   //console.log(data);
-   
-  
+    try {
+      dispatch(setIsLoadingDetail({ isLoadingDetail: true }));
+      const { data } = await cheapSharkGameApi.get(`/games?id=${id}`);
+      //console.log(data);
 
-   dispatch(setGamesDetail({ game: data }));
-    }catch(error){
-    console.log(error)
+      dispatch(setGamesDetail({ game: data }));
+    } catch (error) {
+      console.log(error);
+    } finally {
+      dispatch(setIsLoadingDetail({ isLoadingDetail: false }));
     }
-  
-    
   };
 };

@@ -13,20 +13,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getGame } from "../../store/detailGame";
 
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+//import PlayArrowIcon from "@mui/icons-material/PlayArrow";
 
-export const GameDetails = () => {
-  const { id } = useParams();
-  console.log(id);
-  const dispatch = useDispatch();
+export const GameDetails = ({game}) => {
 
-  const { game } = useSelector((state) => state.detail);
-
-  console.log(" estas en este juego al hacer click", game, "con el id", id);
-
-  useEffect(() => {
-    dispatch(getGame(id));
-  }, []);
 
   //console.log(useParams())
 
