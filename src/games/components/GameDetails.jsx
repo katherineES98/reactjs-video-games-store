@@ -8,12 +8,10 @@ import {
   CardMedia,
   Paper,
 } from "@mui/material";
-import React, { useEffect, useMemo } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
-import { getGame } from "../../store/detailGame";
+import React from "react";
+import { getDate } from "../../const";
 
-//import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+
 
 export const GameDetails = ({game}) => {
 
@@ -48,7 +46,7 @@ export const GameDetails = ({game}) => {
                 <Typography>Price: ${game.cheapestPriceEver.price},</Typography>
               </div>
               <div className="centrado">
-                <Typography>date: {game.cheapestPriceEver.date}</Typography>
+                <Typography>date: {getDate(new Date(game.cheapestPriceEver.date))}</Typography>
               </div>
             </div>
           </Box>
