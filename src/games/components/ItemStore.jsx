@@ -11,7 +11,8 @@ import React from "react";
 const dollars= "$"
 
 export const ItemStore = ({storeName,isActive,images,price,retailPrice,savings}) => {
-    console.log({images,storeName})
+  //  console.log(import.meta.env.VITE_API_IMG_URL + images.logo )
+    console.log(images)
   return (
     <Grid item lg={4} md={6} sm={12} xs={12}>
       <Box>
@@ -54,7 +55,7 @@ export const ItemStore = ({storeName,isActive,images,price,retailPrice,savings})
           <CardMedia
             component="img"
             sx={{ width: 220 }}
-            image={images.icon}
+            image={import.meta.env.VITE_API_IMG_URL + images.logo}
             alt="Live from space album cover"
           />
         </Card>
@@ -62,3 +63,9 @@ export const ItemStore = ({storeName,isActive,images,price,retailPrice,savings})
     </Grid>
   );
 };
+
+
+
+
+
+

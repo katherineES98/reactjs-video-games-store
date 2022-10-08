@@ -12,13 +12,25 @@ export const DetailGamePage = () => {
   const { gameID } = useParams();
   // console.log(id);
   const dispatch = useDispatch();
-  const { game, isLoadingDetail,stores } = useSelector((state) => state.detail);
- console.log({stores})
+  const { game, isLoadingDetail, stores } = useSelector(
+    (state) => state.detail
+  );
+  console.log("estan son las tiendas",{ stores });
+  console.log({ game });
   //console.log(" estas en este juego al hacer click", game, "con el id", id);
 
   useEffect(() => {
     dispatch(getGame(gameID));
   }, []);
+
+  // { game.map((gam) => (
+  //     console.log(gam)
+  // ))}
+
+
+  //console.log("aqui",stor)
+
+  // return  heroes.find(hero=> hero.id===id )
 
   return (
     <>
