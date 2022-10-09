@@ -8,68 +8,70 @@ import {
   CardMedia,
   Paper,
   ImageList,
+  Button,
 } from "@mui/material";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { formatData, getDate } from "../../helpers";
 import { ItemStore } from "./ItemStore";
 
-
 export const GameDetails = ({ game, stores }) => {
-
-  
   return (
     <>
-      <Grid className="container-detail" container sx={{ mt: 10 }}>
-        <Grid item xs={12}>
-          <Typography className="text-title">{game.info.title}</Typography>
-          <Box
-            className="image-container"
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-         
-            <div className="contenedor">
-              <img
-                src={game.info.thumb}
-               
-                className="img-detail"
-                alt="hola"
-                loading="lazy"
-              />
-              <div className="texto-encima">
-                <Typography>Price: ${game.cheapestPriceEver.price},</Typography>
-              </div>
-              <div className="centrado">
-                <Typography>
-                  date: {getDate(new Date(game.cheapestPriceEver.date))}
-                </Typography>
-              </div>
-            </div>
+      {/**detalles juego */}
+      <Grid container sx={{ mt: 10 }}>
+        <Grid item xs={12} sm={6}>
+          <Box className="img-content" sx={{ mt: 2 }}>
+            <img
+              src={game.info.thumb}
+              className="img-detail"
+              alt="hola"
+              loading="lazy"
+            />
+          </Box>
+        </Grid>
+        <Grid border={2} className="box" item xs={12} sm={6} sx={{ mt: 2 }} >
+          <Box className="container-title" border={2}>
+            <Typography className="text-title">{game.info.title}</Typography>
+          </Box>
+          <Box className="text-information">
+            <Typography className="text-price ">
+              Price: ${game.cheapestPriceEver.price},
+            </Typography>
+            <Typography className="text-date ">
+              Date: {getDate(new Date(game.cheapestPriceEver.date))}
+            </Typography>
+        
+          
+              <Link
+                    href="#"
+                    variant="body2"
+                    className="link-back"
+                    to="/"
+                  >
+                  <Button className="btn-back ov-btn-grow-spin" variant="outlined">
+            Back
+            </Button>
+                  </Link>
+             
           </Box>
         </Grid>
       </Grid>
 
       {/* ofertas */}
 
-      <Typography className="title-store">
+      <Typography className="title-store" >
         Stores with available game offers
       </Typography>
 
       {/* border={2} */}
-<Box className="galery-center" >
-
-<ImageList  sx={{width: 750, height: 550}}  cols={3}>
-{stores.map((store) => {
- 
- return <ItemStore key={store.storeID}  {...store}  />;
-})}
-</ImageList>
-
-</Box>
-     
+      <Box className="galery-center">
+        <ImageList sx={{ width: 750, height: 550 }} cols={3}>
+          {stores.map((store) => {
+            return <ItemStore key={store.storeID} {...store} />;
+          })}
+        </ImageList>
+      </Box>
     </>
   );
 };
@@ -82,8 +84,8 @@ export const GameDetails = ({ game, stores }) => {
       </ul> */
 }
 
-
-{/* <Grid
+{
+  /* <Grid
 container
 style={{
   marginLeft: 15,
@@ -94,4 +96,5 @@ spacing={1}
  
   return <ItemStore key={store.storeID}  {...store}  />;
 })}
-</Grid> */}
+</Grid> */
+}

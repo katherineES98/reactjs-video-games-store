@@ -1,8 +1,9 @@
 .img-detail {
   object-fit: cover;
   background-size: cover;
-  width: 300px;
-  height: 300px;
+  width: 350px;
+  height: 350px;
+  border: #f0f0f0 8px outset;
 }
 .contenedor {
   position: relative;
@@ -25,7 +26,9 @@
   text-align: center;
   font-size: 35px !important;
 }
-
+.text-information{
+  text-align: center;
+}
 .container-detail {
   display: flex;
   align-items: center;
@@ -41,8 +44,13 @@
   font-size: 18px !important;
 }
 .text-price {
-  padding-left: 10px;
-  font-size: 18px !important;
+
+  font-size: 20px !important;
+  margin-top: 10px!important;
+}
+.text-date {
+  font-size: 20px !important;
+  margin-top: 10px!important;
 }
 
 /* .css-4go8ts-MuiPaper-root-MuiCard-root{
@@ -51,9 +59,9 @@
     
 } */
 .title-store {
-  font-size: 20px !important;
+  font-size: 30px !important;
   padding-left: 20px;
-  margin-top: 20px !important;
+  margin-top: 60px !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,4 +79,65 @@
 }
 .img-store{
   padding: 20px;
+}
+
+.img-content{
+  display: flex;
+    justify-content: center;
+}
+
+.box{
+
+  border-color:#0a4f90!important;
+ 
+}
+
+
+.container-title{
+  background-color:#2d2d2d;
+  color: white;
+}
+.btn-back{
+  width: 50%;
+  margin-top: 25px!important;
+}
+
+.ov-btn-grow-spin {
+  background: #fff; /* color de fondo */
+  color: #4741d7; /* color de fuente */
+  border: 2px solid #4741d7; /* tamaño y color de borde */
+  padding: 16px 20px;
+  border-radius: 3px; /* redondear bordes */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  display: inline-block;
+}
+.ov-btn-grow-spin:hover {
+  color: #fff;/* color de fuente hover */
+}
+.ov-btn-grow-spin::after {
+  content: "";
+  background: #4741d7; /* color de fondo hover */
+  position: absolute;
+  z-index: -1;
+  padding: 16px 20px;
+  display: block;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  transform: scale(0, 0) rotate(-180deg);
+  transition: all 0.3s ease;
+}
+.ov-btn-grow-spin:hover::after {
+  transition: all 0.3s ease-out;
+  transform: scale(1, 1) rotate(0deg);
+}
+
+.link-back{
+  text-decoration:none
+}
+.btn-detail{
+  text-decoration:none
 }

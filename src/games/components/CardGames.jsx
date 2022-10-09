@@ -50,9 +50,13 @@ export const CardGames = ({ thumb, cheapest, external, gameID }) => {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Link to={`/detail/${gameID}`} size="small" color="primary">
-            See more
+          <Link className="btn-detail" to={`/detail/${gameID}`} size="small" color="primary">
+          <Button size="small" color="primary">
+          See more
+          </Button>
+          
           </Link>
+        
           <Button size="small" color="primary">
             Save
           </Button>
