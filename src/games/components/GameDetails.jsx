@@ -7,6 +7,7 @@ import {
   IconButton,
   CardMedia,
   Paper,
+  ImageList,
 } from "@mui/material";
 import React, { useState } from "react";
 import { formatData, getDate } from "../../helpers";
@@ -57,18 +58,18 @@ export const GameDetails = ({ game, stores }) => {
         Stores with available game offers
       </Typography>
 
-      <Grid
-        container
-        style={{
-          marginLeft: 15,
-        }}
-        spacing={1}
-      >
-        {stores.map((store) => {
-         
-          return <ItemStore key={store.storeID}  {...store}  />;
-        })}
-      </Grid>
+      {/* border={2} */}
+<Box className="galery-center" >
+
+<ImageList  sx={{width: 750, height: 550}}  cols={3}>
+{stores.map((store) => {
+ 
+ return <ItemStore key={store.storeID}  {...store}  />;
+})}
+</ImageList>
+
+</Box>
+     
     </>
   );
 };
@@ -80,3 +81,17 @@ export const GameDetails = ({ game, stores }) => {
         <li>{game.cheapestPriceEver.price}</li>
       </ul> */
 }
+
+
+{/* <Grid
+container
+style={{
+  marginLeft: 15,
+}}
+spacing={1}
+>
+{stores.map((store) => {
+ 
+  return <ItemStore key={store.storeID}  {...store}  />;
+})}
+</Grid> */}

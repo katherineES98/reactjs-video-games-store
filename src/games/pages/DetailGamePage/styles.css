@@ -58,3 +58,17 @@
   align-items: center;
   justify-content: center;
 }
+
+.border-img{
+  border: 2px solid rgb(173, 171, 171)!important;
+  border-radius: 10px;
+
+}
+
+.galery-center{
+  display: flex;
+    justify-content: center;
+}
+.img-store{
+  padding: 20px;
+}

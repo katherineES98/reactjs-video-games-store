@@ -4,68 +4,89 @@ import {
   CardContent,
   CardMedia,
   Grid,
+  IconButton,
+  ImageListItem,
+  ImageListItemBar,
   Typography,
 } from "@mui/material";
 import React from "react";
 
-const dollars= "$"
+const dollars = "$";
 
-export const ItemStore = ({storeName,isActive,images,price,retailPrice,savings}) => {
+export const ItemStore = ({
+  storeName,
+  isActive,
+  images,
+  price,
+  retailPrice,
+  savings,
+}) => {
   //  console.log(import.meta.env.VITE_API_IMG_URL + images.logo )
-    console.log(images)
+  console.log(images);
   return (
-    <Grid item lg={4} md={6} sm={12} xs={12}>
-      <Box>
-        <Card
-          style={{
-            boxShadow: "0px 1px 10px rgba(1,2,2,2.2)",
-            cursor: "default",
-            transition: "all 400ms ease-out",
-          }}
-          sx={{ display: "flex", width: 400 }}
-        >
-          <div sx={{ display: "flex", flexDirection: "column" }}>
-            <CardContent sx={{ flex: "1 0 auto" }}>
-              <Typography component="div" variant="h5">
-               {storeName}
-              </Typography>
-              <Typography
-                variant="subtitle1"
-                color="text.secondary"
-                component="div"
-              >
-                Price: {dollars}{price}
-              </Typography>
-              <Typography
-                variant="subtitle1"
-                color="text.secondary"
-                component="div"
-              >
-                Retail Price:{dollars}{retailPrice}
-              </Typography>
-              <Typography
-                variant="subtitle1"
-                color="text.secondary"
-                component="div"
-              >
-             Savings:{dollars}{savings}
-              </Typography>
-            </CardContent>
-          </div>
-          <CardMedia
-            component="img"
-            sx={{ width: 220 }}
-            image={import.meta.env.VITE_API_IMG_URL + images.logo}
-            alt="Live from space album cover"
-          />
-        </Card>
-      </Box>
-    </Grid>
+    <ImageListItem className="border-img">
+      <img
+        src={`${
+          import.meta.env.VITE_API_IMG_URL + images.logo
+        }?w=248&fit=crop&auto=format`}
+        srcSet={`${
+          import.meta.env.VITE_API_IMG_URL + images.logo
+        }?w=248&fit=crop&auto=format&dpr=2 2x`}
+        alt={storeName}
+        loading="lazy"
+        className="img-store"
+      />
+
+      <ImageListItemBar
+        //
+
+        title={
+          <ul>
+            <li>
+              {
+                <span>
+                  Price: {dollars}
+                  {price}{" "}
+                </span>
+              }
+            </li>
+            <li>
+              {
+                <span>
+                  Retail Price:{dollars}
+                  {retailPrice}{" "}
+                </span>
+              }
+            </li>
+            <li>
+              {
+                <span>
+                  Savings:{dollars}
+                  {savings}
+                </span>
+              }
+            </li>
+          </ul>
+        }
+        position="below"
+      />
+
+      <ImageListItemBar
+        sx={{
+          background:
+            "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, " +
+            "rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
+            borderRadius:2
+        }}
+        title={<b>storeName</b>}
+        position="top"
+        actionIcon={
+          <IconButton sx={{ color: "white" }} aria-label={`star ${storeName}`}>
+            {/* <StarBorderIcon /> */}
+          </IconButton>
+        }
+        actionPosition="left"
+      />
+    </ImageListItem>
   );
 };
-
-
-
-
-
-
