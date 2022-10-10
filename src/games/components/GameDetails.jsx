@@ -8,7 +8,9 @@ import { setSaveGames } from "../../store/game/thunks";
 import { ItemStore } from "./ItemStore";
 
 export const GameDetails = ({ game, stores }) => {
+  const dollars = "$";
  const dispatch= useDispatch()
+
   const saveGames = () =>{
     dispatch(setSaveGames({game,stores,userId:FirebaseAuth.currentUser.uid}))
   }
@@ -33,7 +35,7 @@ export const GameDetails = ({ game, stores }) => {
           </Box>
           <Box className="text-information">
             <Typography className="text-price ">
-              Price: ${game.cheapestPriceEver.price},
+              Price: {dollars}{game.cheapestPriceEver.price},
             </Typography>
             <Typography className="text-date ">
               Date: {getDate(new Date(game.cheapestPriceEver.date))}

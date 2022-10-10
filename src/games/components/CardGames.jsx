@@ -13,7 +13,16 @@ import { Link } from "react-router-dom";
 const defaultImage =
   "https://i.pcmag.com/imagery/roundups/38133..v1594409362.jpg";
 
-export const CardGames = ({ thumb, cheapest, external, gameID }) => {
+const dollars = "$";
+
+export const CardGames = ({
+  thumb,
+  cheapest,
+  external,
+  gameID,
+  date,
+  showButton = true,
+}) => {
   const [image, setImage] = useState(thumb || defaultImage);
 
   const setDefaultImage = () => {
@@ -45,19 +54,26 @@ export const CardGames = ({ thumb, cheapest, external, gameID }) => {
               {external}
             </Typography>
             <Typography variant="body2" color="textSecondary" component="p">
-              cheapest: {cheapest}
+              cheapest: {dollars}{cheapest}
+            </Typography>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {date}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Link className="btn-detail" to={`/detail/${gameID}`} size="small" color="primary">
-          <Button size="small" color="primary">
-          See more
-          </Button>
-          
-          </Link>
-        
-        
+          {showButton && (
+            <Link
+              className="btn-detail"
+              to={`/detail/${gameID}`}
+              size="small"
+              color="primary"
+            >
+              <Button size="small" color="primary">
+                See more
+              </Button>
+            </Link>
+          )}
         </CardActions>
       </Card>
     </>

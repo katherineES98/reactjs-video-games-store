@@ -6,8 +6,10 @@ import { useDispatch } from "react-redux";
 
 
 import { startLogout } from '../../store/auth';
-import { IconButton } from '@mui/material';
-export const LinksUser = () => {
+import { Button, IconButton } from '@mui/material';
+import { NavLink } from 'react-router-dom';
+
+export const LinksUser = ( ) => {
     const dispatch= useDispatch();
     const onLogout =()=>{
       // console.log('logout')
@@ -15,7 +17,18 @@ export const LinksUser = () => {
     }
   return (
     <>
+      <Button variant="text" color="inherit" >
+    <NavLink
+      to="/savegames"
+      style={{ textDecoration: "none", color: "inherit" }}
+    >
+      
+library
+    </NavLink>
+  </Button>
      <IconButton color="inherit" onClick={ onLogout}><LogoutOutlined /></IconButton>
+   
+     
     </>
   )
 }
