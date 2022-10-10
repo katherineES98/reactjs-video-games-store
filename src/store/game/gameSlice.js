@@ -5,6 +5,7 @@ const initialState = {
   games: [],
   searchGames: "batman",
   isLoading: false,
+  saveGames:[]
 };
 
 export const gameSlice = createSlice({
@@ -26,8 +27,11 @@ export const gameSlice = createSlice({
     setIsLoading: (state, action) => {
       state.isLoading = action.payload.isLoading;
     },
+    setSaveGamesState: (state, action) => {
+      state.saveGames = action.payload.saveGames;
+    },
   },
 });
 
-export const { reset, setGames, setPage, setSearchGames, setIsLoading } =
+export const { reset, setGames, setPage, setSearchGames, setIsLoading,setSaveGamesState } =
   gameSlice.actions;

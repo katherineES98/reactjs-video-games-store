@@ -44,9 +44,12 @@ export const GameDetails = ({ game, stores }) => {
                 Back
               </Button>
             </Link>
-            <Button onClick={saveGames} className="btn-back ov-btn-grow-spin" variant="outlined">
+             <Link href="#" variant="body2" className="link-back" to="/savegames">
+             <Button  onClick={saveGames} className="btn-back ov-btn-grow-spin" variant="outlined">
               Save
             </Button>
+            </Link>
+         
           </Box>
         </Grid>
       </Grid>

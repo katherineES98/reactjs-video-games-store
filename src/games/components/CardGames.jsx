@@ -57,9 +57,7 @@ export const CardGames = ({ thumb, cheapest, external, gameID }) => {
           
           </Link>
         
-          <Button size="small" color="primary">
-            Save
-          </Button>
+        
         </CardActions>
       </Card>
     </>

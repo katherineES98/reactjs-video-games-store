@@ -1,7 +1,6 @@
 import { cheapSharkGameApi } from "../../api/cheapSharkGameApi";
-import { saveGames } from "../../firebase/providersGame";
-import { setGames, setIsLoading, setPage } from "./gameSlice";
-
+import { getSaveGames, saveGames } from "../../firebase/providersGame";
+import { setGames, setIsLoading, setPage, setSaveGamesState } from "./gameSlice";
 
 export const dataForPage = 10;
 
@@ -25,16 +24,27 @@ export const getGames = (page, textSearch) => {
   };
 };
 export const setSaveGames = (paramsGame) => {
+  //insertar
   return async (dispatch) => {
     try {
-      await saveGames(paramsGame)
-
+      await saveGames(paramsGame);
     } catch (error) {
       console.log(error);
     } finally {
-     
     }
   };
 };
 
-
+export const getDataSaveGames = () => {
+  //obtener
+  return async (dispatch) => {
+    try {
+      const data = await getSaveGames();
+      console.log({data})
+      dispatch(setSaveGamesState({ saveGames: data }));
+    } catch (error) {
+      console.log(error);
+    } finally {
+    }
+  };
+};
