@@ -1,7 +1,9 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
+import { GameDetails } from "../components/GameDetails";
+import { DetailGamePage } from "../pages/DetailGamePage";
 import { GamePage } from "../pages/GamePage";
-import { WelcomePage } from "../pages/WelcomePage";
+//import { WelcomePage } from "../pages/WelcomePage";
 
 
 {
@@ -11,6 +13,8 @@ export const GameRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<GamePage />} />
+      <Route path="/detail/:gameID" element={<DetailGamePage />} />
+   
       //!DUDA de rutas
        {/* <Route path="/*" element={<WelcomePage />} /> */}
       {/**si no estoy en la ruta anterior sera esta  */}
