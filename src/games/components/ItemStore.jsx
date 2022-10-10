@@ -78,7 +78,7 @@ export const ItemStore = ({
             "rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
             borderRadius:2
         }}
-        title={<b>storeName</b>}
+        title={<span><b>{storeName}</b></span>}
         position="top"
         actionIcon={
           <IconButton sx={{ color: "white" }} aria-label={`star ${storeName}`}>

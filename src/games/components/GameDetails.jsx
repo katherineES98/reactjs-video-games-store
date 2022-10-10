@@ -53,6 +53,9 @@ export const GameDetails = ({ game, stores }) => {
             Back
             </Button>
                   </Link>
+                  <Button className="btn-back ov-btn-grow-spin" variant="outlined">
+            Save
+            </Button>
              
           </Box>
         </Grid>
