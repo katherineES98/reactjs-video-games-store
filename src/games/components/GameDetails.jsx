@@ -1,21 +1,18 @@
-import {
-  Grid,
-  Box,
-  Typography,
-  Card,
-  CardContent,
-  IconButton,
-  CardMedia,
-  Paper,
-  ImageList,
-  Button,
-} from "@mui/material";
+import {Grid,Box,Typography,ImageList,Button} from "@mui/material";
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { FirebaseAuth } from "../../firebase/config";
 import { formatData, getDate } from "../../helpers";
+import { setSaveGames } from "../../store/game/thunks";
 import { ItemStore } from "./ItemStore";
 
 export const GameDetails = ({ game, stores }) => {
+ const dispatch= useDispatch()
+  const saveGames = () =>{
+    dispatch(setSaveGames({game,stores,userId:FirebaseAuth.currentUser.uid}))
+  }
+
   return (
     <>
       {/**detalles juego */}
@@ -30,7 +27,7 @@ export const GameDetails = ({ game, stores }) => {
             />
           </Box>
         </Grid>
-        <Grid border={2} className="box" item xs={12} sm={6} sx={{ mt: 2 }} >
+        <Grid border={2} className="box" item xs={12} sm={6} sx={{ mt: 2 }}>
           <Box className="container-title" border={2}>
             <Typography className="text-title">{game.info.title}</Typography>
           </Box>
@@ -41,29 +38,22 @@ export const GameDetails = ({ game, stores }) => {
             <Typography className="text-date ">
               Date: {getDate(new Date(game.cheapestPriceEver.date))}
             </Typography>
-        
-          
-              <Link
-                    href="#"
-                    variant="body2"
-                    className="link-back"
-                    to="/"
-                  >
-                  <Button className="btn-back ov-btn-grow-spin" variant="outlined">
-            Back
+
+            <Link href="#" variant="body2" className="link-back" to="/">
+              <Button className="btn-back ov-btn-grow-spin" variant="outlined">
+                Back
+              </Button>
+            </Link>
+            <Button onClick={saveGames} className="btn-back ov-btn-grow-spin" variant="outlined">
+              Save
             </Button>
-                  </Link>
-                  <Button className="btn-back ov-btn-grow-spin" variant="outlined">
-            Save
-            </Button>
-             
           </Box>
         </Grid>
       </Grid>
 
       {/* ofertas */}
 
-      <Typography className="title-store" >
+      <Typography className="title-store">
         Stores with available game offers
       </Typography>
 

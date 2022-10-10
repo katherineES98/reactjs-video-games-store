@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth  } from 'firebase/auth';
 //usar firestore y lite porque no requiero de todas las funcionalidades 
-import { getFirestore} from 'firebase/firestore/lite'
+import { getFirestore} from 'firebase/firestore'
 
 
 const firebaseConfig = {
@@ -11,12 +11,13 @@ const firebaseConfig = {
     storageBucket:import.meta.env.VITE_STORAGE_BUCKET,
     messagingSenderId:import.meta.env.VITE_MESSAGING_SENDER_ID,
     appId:import.meta.env.VITE_APP_ID,
+    databaseURL: "https://reactjs-video-games-store.firebaseio.com",
   };
 
 
 
   // Initialize Firebase
 export const FirebaseApp = initializeApp(firebaseConfig);
-
+console.log(FirebaseApp.name);
 export const FirebaseAuth= getAuth(FirebaseApp);
 export const FirebaseDB= getFirestore(FirebaseApp)
