@@ -10,8 +10,8 @@ import "./styles.css";
 
 export const SaveGamePage = () => {
   const dispatch = useDispatch();
-  const { saveGames,isLoading } = useSelector((state) => state.games);
-  console.log("este es", { saveGames });
+  const { saveGames, isLoading } = useSelector((state) => state.games);
+  //console.log("este es", { saveGames });
 
   useEffect(() => {
     dispatch(getDataSaveGames());
@@ -22,7 +22,7 @@ export const SaveGamePage = () => {
       {/* key={save.gameID} */}
       {/* <h1> Save Game </h1> */}
 
-      <NavBar  />
+      <NavBar />
 
       {isLoading && (
         <Stack
@@ -35,23 +35,20 @@ export const SaveGamePage = () => {
         </Stack>
       )}
 
-{saveGames.length === 0 && !isLoading && (
+      {saveGames.length === 0 && !isLoading && (
         <Stack
           justifyContent="center"
           sx={{ color: "grey.500", marginTop: 10 }}
           spacing={2}
           direction="row"
         >
-          <p className="text-msave"><b>You don't have any saved games at the moment!</b> </p>
+          <p className="text-msave">
+            <b>You don't have any saved games at the moment!</b>{" "}
+          </p>
         </Stack>
       )}
 
-
       <Grid sx={{ marginTop: 10 }} container justifyContent="center">
-      
-       
-
-
         {saveGames.map((save) => (
           <Box key={save.id} className="card-pruea" width="300px">
             <CardGames
@@ -60,6 +57,7 @@ export const SaveGamePage = () => {
               cheapest={save.game.cheapestPriceEver.price}
               date={getDate(new Date(save.game.cheapestPriceEver.date))}
               showButton={false}
+           
             />
           </Box>
         ))}

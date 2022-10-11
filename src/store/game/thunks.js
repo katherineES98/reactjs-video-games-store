@@ -1,8 +1,11 @@
 import { cheapSharkGameApi } from "../../api/cheapSharkGameApi";
 import { getSaveGames, saveGames } from "../../firebase/providersGame";
-import { setGames, setIsLoading, setPage, setSaveGamesState } from "./gameSlice";
+import { setButtonLoading, setGames, setIsLoading, setPage, setSaveGamesState } from "./gameSlice";
+//import { useNavigate } from "react-router-dom";
 
 export const dataForPage = 10;
+
+//const navigate= useNavigate();
 
 export const getGames = (page, textSearch) => {
   return async (dispatch) => {
@@ -28,12 +31,14 @@ export const setSaveGames = (paramsGame) => {
   //insertar
 
   return async (dispatch) => {
-    dispatch(setbButtonLoading({ buttonLoading: true }));
+    dispatch(setButtonLoading({ buttonLoading: true }));
     try {
       await saveGames(paramsGame);
+      //navigate("/savegames")
     } catch (error) {
       console.log(error);
     } finally {
+      dispatch(setButtonLoading({ buttonLoading: false }));
     }
   };
 };

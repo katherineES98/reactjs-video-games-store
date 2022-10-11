@@ -15,7 +15,7 @@ export const DetailGamePage = () => {
   const { game, isLoadingDetail, stores } = useSelector(
     (state) => state.detail
   );
-  console.log("estan son las tiendas", { stores });
+  console.log("estan son las tiendas",{ stores });
   console.log({ game });
   //console.log(" estas en este juego al hacer click", game, "con el id", id);
 
@@ -26,6 +26,7 @@ export const DetailGamePage = () => {
   // { game.map((gam) => (
   //     console.log(gam)
   // ))}
+
 
   //console.log("aqui",stor)
 

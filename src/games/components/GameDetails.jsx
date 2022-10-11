@@ -1,23 +1,27 @@
-import {Grid,Box,Typography,ImageList,Button} from "@mui/material";
+import { Grid, Box, Typography, ImageList, Button } from "@mui/material";
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { FirebaseAuth } from "../../firebase/config";
 import { formatData, getDate } from "../../helpers";
 import { setSaveGames } from "../../store/game/thunks";
 import { ItemStore } from "./ItemStore";
-import LoadingButton from '@mui/lab/LoadingButton';
+import LoadingButton from "@mui/lab/LoadingButton";
 
-import SaveIcon from '@mui/icons-material/Save';
-
+import SaveIcon from "@mui/icons-material/Save";
 
 export const GameDetails = ({ game, stores }) => {
   const dollars = "$";
- const dispatch= useDispatch()
+  //const [loading, setLoading] = useState(false);
+  const { buttonLoading } = useSelector((state) => state.games);
 
-  const saveGames = () =>{
+  const dispatch = useDispatch();
+
+  const saveGamesUser = () => {
     dispatch(setSaveGames({game,stores,userId:FirebaseAuth.currentUser.uid}))
-  }
+
+   
+  };
 
   return (
     <>
@@ -39,7 +43,8 @@ export const GameDetails = ({ game, stores }) => {
           </Box>
           <Box className="text-information">
             <Typography className="text-price ">
-              Price: {dollars}{game.cheapestPriceEver.price},
+              Price: {dollars}
+              {game.cheapestPriceEver.price},
             </Typography>
             <Typography className="text-date ">
               Date: {getDate(new Date(game.cheapestPriceEver.date))}
@@ -50,30 +55,29 @@ export const GameDetails = ({ game, stores }) => {
                 Back
               </Button>
             </Link>
-             {/* <Link href="#" variant="body2" className="link-back" to="/savegames">
+            {/* <Link href="#" variant="body2" className="link-back" to="/savegames">
              <Button  onClick={saveGames} className="btn-back ov-btn-grow-spin" variant="outlined">
               Save
             </Button>
             </Link> */}
 
-
-
-<LoadingButton
-          color="secondary"
-          // onClick={handleClick}
-          loading
-          loadingPosition="start"
-         startIcon={<SaveIcon />}
-          variant="outlined"
-        >
-          Save
-        </LoadingButton>
-
-        
-         
+            <LoadingButton
+              color="secondary"
+              onClick={saveGamesUser}
+              loading={buttonLoading}
+              loadingPosition="start"
+              startIcon={<SaveIcon />}
+              variant="contained"
+            >
+              Save
+            </LoadingButton>
           </Box>
         </Grid>
       </Grid>
+
+
+
+
 
       {/* ofertas */}
 

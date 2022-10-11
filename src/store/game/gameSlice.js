@@ -31,11 +31,11 @@ export const gameSlice = createSlice({
     setSaveGamesState: (state, action) => {
       state.saveGames = action.payload.saveGames;
     },
-    setbButtonLoading: (state, action) => {
+    setButtonLoading: (state, action) => {
       state.buttonLoading = action.payload.buttonLoading;
     },
   },
 });
 
-export const { reset, setGames, setPage, setSearchGames, setIsLoading,setSaveGamesState } =
+export const { reset, setGames, setPage, setSearchGames, setIsLoading,setSaveGamesState, setButtonLoading } =
   gameSlice.actions;
