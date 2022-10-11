@@ -1,17 +1,28 @@
 import { cheapSharkGameApi } from "../../api/cheapSharkGameApi";
 import { getSaveGames, saveGames } from "../../firebase/providersGame";
-import { setButtonLoading, setGames, setIsLoading, setPage, setSaveGamesState } from "./gameSlice";
-//import { useNavigate } from "react-router-dom";
+import {
+  setButtonLoading,
+  setGames,
+  setIsLoading,
+  setPage,
+  setSaveGamesState,
+} from "./gameSlice";
+//import { Navigate } from "react-router-dom";
 
+//import {  Navigate, useNavigate, } from "react-router-dom";
 export const dataForPage = 10;
 
-//const navigate= useNavigate();
+// function component(){
+//   let navigate = useNavigate();
+//   return navigate('/savegames')
+// }
+// const navigate= useNavigate();
 
 export const getGames = (page, textSearch) => {
   return async (dispatch) => {
     try {
       dispatch(setIsLoading({ isLoading: true }));
-     
+
       const { data } = await cheapSharkGameApi.get(
         `/games?title=${textSearch}&limit=${page}&exact=0`
       );
@@ -34,7 +45,11 @@ export const setSaveGames = (paramsGame) => {
     dispatch(setButtonLoading({ buttonLoading: true }));
     try {
       await saveGames(paramsGame);
-      //navigate("/savegames")
+      // navigate("/savegames")
+      //{ <Navigate to='/savegames' />}
+      {
+        component();
+      }
     } catch (error) {
       console.log(error);
     } finally {
@@ -49,7 +64,7 @@ export const getDataSaveGames = () => {
     try {
       dispatch(setIsLoading({ isLoading: true }));
       const data = await getSaveGames();
-      console.log({data})
+      console.log({ data });
       dispatch(setSaveGamesState({ saveGames: data }));
     } catch (error) {
       console.log(error);
