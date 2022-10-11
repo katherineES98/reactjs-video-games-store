@@ -8,6 +8,7 @@ export const getGames = (page, textSearch) => {
   return async (dispatch) => {
     try {
       dispatch(setIsLoading({ isLoading: true }));
+     
       const { data } = await cheapSharkGameApi.get(
         `/games?title=${textSearch}&limit=${page}&exact=0`
       );
@@ -25,7 +26,9 @@ export const getGames = (page, textSearch) => {
 };
 export const setSaveGames = (paramsGame) => {
   //insertar
+
   return async (dispatch) => {
+    dispatch(setbButtonLoading({ buttonLoading: true }));
     try {
       await saveGames(paramsGame);
     } catch (error) {
@@ -39,12 +42,14 @@ export const getDataSaveGames = () => {
   //obtener
   return async (dispatch) => {
     try {
+      dispatch(setIsLoading({ isLoading: true }));
       const data = await getSaveGames();
       console.log({data})
       dispatch(setSaveGamesState({ saveGames: data }));
     } catch (error) {
       console.log(error);
     } finally {
+      dispatch(setIsLoading({ isLoading: false }));
     }
   };
 };

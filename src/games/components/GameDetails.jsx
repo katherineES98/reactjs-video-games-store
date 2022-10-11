@@ -6,6 +6,10 @@ import { FirebaseAuth } from "../../firebase/config";
 import { formatData, getDate } from "../../helpers";
 import { setSaveGames } from "../../store/game/thunks";
 import { ItemStore } from "./ItemStore";
+import LoadingButton from '@mui/lab/LoadingButton';
+
+import SaveIcon from '@mui/icons-material/Save';
+
 
 export const GameDetails = ({ game, stores }) => {
   const dollars = "$";
@@ -46,11 +50,26 @@ export const GameDetails = ({ game, stores }) => {
                 Back
               </Button>
             </Link>
-             <Link href="#" variant="body2" className="link-back" to="/savegames">
+             {/* <Link href="#" variant="body2" className="link-back" to="/savegames">
              <Button  onClick={saveGames} className="btn-back ov-btn-grow-spin" variant="outlined">
               Save
             </Button>
-            </Link>
+            </Link> */}
+
+
+
+<LoadingButton
+          color="secondary"
+          // onClick={handleClick}
+          loading
+          loadingPosition="start"
+         startIcon={<SaveIcon />}
+          variant="outlined"
+        >
+          Save
+        </LoadingButton>
+
+        
          
           </Box>
         </Grid>
