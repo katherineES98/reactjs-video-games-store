@@ -22,7 +22,7 @@ export const ItemStore = ({
   savings,
 }) => {
   //  console.log(import.meta.env.VITE_API_IMG_URL + images.logo )
-  console.log(images);
+ // console.log(images);
   return (
     <ImageListItem className="border-img">
       <img

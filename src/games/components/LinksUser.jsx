@@ -1,21 +1,38 @@
-
-
-import { LogoutOutlined } from '@mui/icons-material';
+import { LogoutOutlined } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
 //import { startLogout } from "../../store/auth";
 
+import { startLogout } from "../../store/auth";
+import { Button, IconButton } from "@mui/material";
+import { NavLink } from "react-router-dom";
 
-import { startLogout } from '../../store/auth';
-import { IconButton } from '@mui/material';
 export const LinksUser = () => {
-    const dispatch= useDispatch();
-    const onLogout =()=>{
-      // console.log('logout')
-       dispatch(startLogout())
-    }
+  const dispatch = useDispatch();
+  const onLogout = () => {
+    // console.log('logout')
+    dispatch(startLogout());
+  };
   return (
     <>
-     <IconButton color="inherit" onClick={ onLogout}><LogoutOutlined /></IconButton>
+      <Button variant="text" color="inherit">
+        <NavLink
+          to="/savegames"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          library
+        </NavLink>
+      </Button>
+      <Button variant="text" color="inherit">
+        <NavLink
+          to="/"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          Games
+        </NavLink>
+      </Button>
+      <IconButton color="inherit" onClick={onLogout}>
+        <LogoutOutlined />
+      </IconButton>
     </>
-  )
-}
+  );
+};

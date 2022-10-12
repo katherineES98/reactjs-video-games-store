@@ -1,21 +1,59 @@
-import {
-  Grid,
-  Box,
-  Typography,
-  Card,
-  CardContent,
-  IconButton,
-  CardMedia,
-  Paper,
-  ImageList,
-  Button,
-} from "@mui/material";
+import { Grid, Box, Typography, ImageList, Button } from "@mui/material";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { FirebaseAuth } from "../../firebase/config";
 import { formatData, getDate } from "../../helpers";
+import { setSaveGames } from "../../store/game/thunks";
 import { ItemStore } from "./ItemStore";
+import LoadingButton from "@mui/lab/LoadingButton";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
-export const GameDetails = ({ game, stores }) => {
+import SaveIcon from "@mui/icons-material/Save";
+
+export const GameDetails = ({ game, stores, gameID }) => {
+  const dollars = "$";
+  const navigate = useNavigate();
+
+  console.log("id", { gameID });
+  console.log("game", { game });
+  //const [loading, setLoading] = useState(false);
+  // const { buttonLoading } = useSelector((state) => state.games);
+
+  const dispatch = useDispatch();
+
+  const alertSave = async (icon, title) => {
+    try {
+      await Swal.fire({
+        position: "center",
+        icon,
+        title,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const saveGamesUser = async () => {
+    const respose = await dispatch(
+      setSaveGames({
+        game,
+        stores,
+        userId: FirebaseAuth.currentUser.uid,
+        gameID: gameID,
+      })
+    );
+    if (respose) {
+      await alertSave("success", "Saved successfully, enjoy your game");
+      navigate("/savegames");
+    } else {
+      alertSave("error", "Error Save game");
+    }
+  };
+
   return (
     <>
       {/**detalles juego */}
@@ -30,40 +68,49 @@ export const GameDetails = ({ game, stores }) => {
             />
           </Box>
         </Grid>
-        <Grid border={2} className="box" item xs={12} sm={6} sx={{ mt: 2 }} >
+        <Grid border={2} className="box" item xs={12} sm={6} sx={{ mt: 2 }}>
           <Box className="container-title" border={2}>
             <Typography className="text-title">{game.info.title}</Typography>
           </Box>
           <Box className="text-information">
             <Typography className="text-price ">
-              Price: ${game.cheapestPriceEver.price},
+              Price: {dollars}
+              {game.cheapestPriceEver.price},
             </Typography>
             <Typography className="text-date ">
               Date: {getDate(new Date(game.cheapestPriceEver.date))}
             </Typography>
-        
-          
-              <Link
-                    href="#"
-                    variant="body2"
-                    className="link-back"
-                    to="/"
-                  >
-                  <Button className="btn-back ov-btn-grow-spin" variant="outlined">
-            Back
+
+            {/* <Link href="#" variant="body2" className="link-back" to="/savegames">
+             <Button  onClick={saveGamesUser} className="btn-back ov-btn-grow-spin" variant="outlined">
+              Save
             </Button>
-                  </Link>
-                  <Button className="btn-back ov-btn-grow-spin" variant="outlined">
-            Save
+            </Link> */}
+            <Button
+              onClick={saveGamesUser}
+              className="btn-back ov-btn-grow-spin"
+              variant="outlined"
+            >
+              Save
             </Button>
-             
+
+            {/* <LoadingButton
+              color="secondary"
+              onClick={saveGamesUser}
+              loading={buttonLoading}
+              loadingPosition="start"
+              startIcon={<SaveIcon />}
+              variant="contained"
+            >
+              Save
+            </LoadingButton> */}
           </Box>
         </Grid>
       </Grid>
 
       {/* ofertas */}
 
-      <Typography className="title-store" >
+      <Typography className="title-store">
         Stores with available game offers
       </Typography>
 

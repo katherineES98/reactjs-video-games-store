@@ -16,9 +16,9 @@ export const DetailGamePage = () => {
     (state) => state.detail
   );
   console.log("estan son las tiendas",{ stores });
-  console.log({ game });
+  //console.log({ game });
   //console.log(" estas en este juego al hacer click", game, "con el id", id);
-
+  //console.log({ gameID });
   useEffect(() => {
     dispatch(getGame(gameID));
   }, []);
@@ -46,8 +46,9 @@ export const DetailGamePage = () => {
           <CircularProgress color="secondary" />
         </Stack>
       ) : (
-        <GameDetails game={game} stores={stores} />
+        <GameDetails game={game} stores={stores} gameID={gameID}  />
       )}
     </>
+    // 
   );
 };
