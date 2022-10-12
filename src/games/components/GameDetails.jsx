@@ -7,38 +7,51 @@ import { formatData, getDate } from "../../helpers";
 import { setSaveGames } from "../../store/game/thunks";
 import { ItemStore } from "./ItemStore";
 import LoadingButton from "@mui/lab/LoadingButton";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 import SaveIcon from "@mui/icons-material/Save";
 
-export const GameDetails = ({ game, stores }) => {
+export const GameDetails = ({ game, stores, gameID }) => {
   const dollars = "$";
   const navigate = useNavigate();
+
+  console.log("id", { gameID });
+  console.log("game", { game });
   //const [loading, setLoading] = useState(false);
   // const { buttonLoading } = useSelector((state) => state.games);
 
   const dispatch = useDispatch();
 
-  const alertSave = () => {
-    Swal.fire({
-      position: "center",
-      icon: "success",
-      title: "Saved successfully, enjoy your game",
-      showConfirmButton: false,
-      timer: 1500,
-    }).then(() => {
-      navigate("/savegames");
-    });
+  const alertSave = async (icon, title) => {
+    try {
+      await Swal.fire({
+        position: "center",
+        icon,
+        title,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const saveGamesUser = () => {
-    //
-    dispatch(
-      setSaveGames({ game, stores, userId: FirebaseAuth.currentUser.uid })
+  const saveGamesUser = async () => {
+    const respose = await dispatch(
+      setSaveGames({
+        game,
+        stores,
+        userId: FirebaseAuth.currentUser.uid,
+        gameID: gameID,
+      })
     );
-    // navigate('/savegames')
-    alertSave();
+    if (respose) {
+      await alertSave("success", "Saved successfully, enjoy your game");
+      navigate("/savegames");
+    } else {
+      alertSave("error", "Error Save game");
+    }
   };
 
   return (
@@ -68,7 +81,6 @@ export const GameDetails = ({ game, stores }) => {
               Date: {getDate(new Date(game.cheapestPriceEver.date))}
             </Typography>
 
-           
             {/* <Link href="#" variant="body2" className="link-back" to="/savegames">
              <Button  onClick={saveGamesUser} className="btn-back ov-btn-grow-spin" variant="outlined">
               Save

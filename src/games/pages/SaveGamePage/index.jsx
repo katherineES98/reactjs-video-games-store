@@ -11,8 +11,8 @@ import "./styles.css";
 export const SaveGamePage = () => {
   const dispatch = useDispatch();
   const { saveGames, isLoading } = useSelector((state) => state.games);
-  //console.log("este es", { saveGames });
 
+  
   useEffect(() => {
     dispatch(getDataSaveGames());
   }, []);
@@ -50,6 +50,7 @@ export const SaveGamePage = () => {
 
       <Grid sx={{ marginTop: 10 }} container justifyContent="center">
         {saveGames.map((save) => (
+        
           <Box key={save.id} className="card-pruea" width="300px">
             <CardGames
               thumb={save.game.info.thumb}
