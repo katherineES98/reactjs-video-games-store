@@ -41,23 +41,25 @@ export const getGames = (page, textSearch) => {
 };
 export const setSaveGames = (paramsGame) => {
   //insertar
-  
+
   return async (dispatch) => {
-    let response= false
-   // dispatch(setButtonLoading({ buttonLoading: true }));
+    let response = false;
+
+    // dispatch(setButtonLoading({ buttonLoading: true }));
     try {
-      console.log({paramsGame})
-      await saveGames(paramsGame);
-      response=true
-      // navigate("/savegames")
-      //{ <Navigate to='/savegames' />}
+      const responseSaveGame = await saveGames(paramsGame);
       
+      if (responseSaveGame === null) {
+        response = false;
+      } else {
+        response = true;
+      }
     } catch (error) {
       console.log(error);
-      response=false
+      response = false;
     } finally {
-      return response
-     // dispatch(setButtonLoading({ buttonLoading: false }));
+      return response;
+      // dispatch(setButtonLoading({ buttonLoading: false }));
     }
   };
 };
@@ -68,9 +70,8 @@ export const getDataSaveGames = () => {
     try {
       dispatch(setIsLoading({ isLoading: true }));
       const data = await getSaveGames();
-    //  console.log("esta",{ data });
-     
-       
+      //  console.log("esta",{ data });
+
       dispatch(setSaveGamesState({ saveGames: data }));
     } catch (error) {
       console.log(error);

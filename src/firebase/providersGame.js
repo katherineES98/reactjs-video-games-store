@@ -10,12 +10,32 @@ import {
   getDocs,
 } from "firebase/firestore";
 
-export const saveGames = async (params) => {  
+export const saveGames = async (params) => {
   //where("state", "==", "CO"), where("name", "==", "Denver")
- //const q1 = query(citiesRef, where("userId", "==", FirebaseAuth.currentUser.uid), where("gameID", "==", gameID));
+  //const q1 = query(citiesRef, where("userId", "==", FirebaseAuth.currentUser.uid), where("gameID", "==", gameID));
   const docRef = doc(collection(FirebaseDB, "games"));
- // const q1 = query(docRef, where("userId", "==", FirebaseAuth.currentUser.uid), where("gameID", "==",gameID));
-  return await setDoc(docRef, params);
+  // const q1 = query(
+  //   docRef,
+  //   where("userId", "==", FirebaseAuth.currentUser.uid),
+  //   where("gameID", "==", params.gameID)
+  // );
+  const q1 = query(
+    collection(FirebaseDB, "games"),
+    where("userId", "==", FirebaseAuth.currentUser.uid),
+    where("gameID", "==", params.gameID)
+  );
+  const queryVerifyGame = await getDocs(q1);
+  const data = [];
+
+  queryVerifyGame.forEach((doc) => {
+    //console.log(`${doc.id} => ${doc.data()}`);
+    data.push({ ...doc.data(), id: doc.id });
+  });
+  if (data.length > 0) {
+    return null;
+  } else {
+    return await setDoc(docRef, params);
+  }
 };
 
 export const getSaveGames = async () => {
@@ -29,14 +49,12 @@ export const getSaveGames = async () => {
 
     const queryGames = await getDocs(q);
     const data = [];
- 
+
     queryGames.forEach((doc) => {
       //console.log(`${doc.id} => ${doc.data()}`);
       data.push({ ...doc.data(), id: doc.id });
     });
-  console.log("esta es la data ", data )
-  console.log(typeof(data))
-  
+
     return data;
   } catch (error) {
     console.log(error);
