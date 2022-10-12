@@ -1,5 +1,4 @@
 import { FirebaseAuth, FirebaseDB } from "./config";
-// import { collection, deleteDoc, doc, setDoc,addDoc } from "firebase/firestore/lite";
 import {
   collection,
   addDoc,
@@ -14,11 +13,7 @@ export const saveGames = async (params) => {
   //where("state", "==", "CO"), where("name", "==", "Denver")
   //const q1 = query(citiesRef, where("userId", "==", FirebaseAuth.currentUser.uid), where("gameID", "==", gameID));
   const docRef = doc(collection(FirebaseDB, "games"));
-  // const q1 = query(
-  //   docRef,
-  //   where("userId", "==", FirebaseAuth.currentUser.uid),
-  //   where("gameID", "==", params.gameID)
-  // );
+ 
   const q1 = query(
     collection(FirebaseDB, "games"),
     where("userId", "==", FirebaseAuth.currentUser.uid),
