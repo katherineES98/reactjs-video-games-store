@@ -49,10 +49,13 @@ export const CardGames = ({
             title="Contemplative Reptile"
             onError={setDefaultImage}
           />
-          <CardContent>
+          <CardContent sx={{height:80}}>
+            <div >
             <Typography gutterBottom variant="p" component="p" mr="5">
               {external}
             </Typography>
+            </div>
+         
             <Typography variant="body2" color="textSecondary" component="p">
               cheapest: {dollars}{cheapest}
             </Typography>

@@ -8,7 +8,7 @@ export const themeApp = createTheme({
       white: "#ffffff",
     },
     secondary: {
-      main: "#543884",
+      main: "#48337b",
       linear: "#2b273c",
       tranparent: "transparent",
     },
