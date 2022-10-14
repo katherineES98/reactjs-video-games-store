@@ -10,11 +10,12 @@ import "./styles.css";
 
 
 export const WelcomePage = () => {
+  document.body.style = 'background: #48337b;';
   return (
   <>
    
 
-<div className="area" >
+<div className="body" >
 <Grid   container component="main" >
 
 <NavBar />

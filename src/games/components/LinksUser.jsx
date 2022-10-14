@@ -14,23 +14,24 @@ export const LinksUser = () => {
   };
   return (
     <>
-      <Button variant="text" color="inherit">
+      <Button variant="text" >
         <NavLink
           to="/savegames"
-          style={{ textDecoration: "none", color: "inherit" }}
+          style={{ textDecoration: "none" ,color:"#4df0e0", fontWeight:"bold",fontFamily: "Barlow,sans-serif",}}
+          
         >
-          library
+          My Games
         </NavLink>
       </Button>
       <Button variant="text" color="inherit">
         <NavLink
           to="/"
-          style={{ textDecoration: "none", color: "inherit" }}
+          style={{ textDecoration: "none" ,color:"#4df0e0", fontWeight:"bold",fontFamily: "Barlow,sans-serif",}}
         >
           Games
         </NavLink>
       </Button>
-      <IconButton color="inherit" onClick={onLogout}>
+      <IconButton sx={{color:"#4df0e0"}} onClick={onLogout}>
         <LogoutOutlined />
       </IconButton>
     </>

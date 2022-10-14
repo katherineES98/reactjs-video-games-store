@@ -18,7 +18,7 @@ export const SaveGamePage = () => {
   }, []);
 
   return (
-    <>
+    <div className="game-save">
       {/* key={save.gameID} */}
       {/* <h1> Save Game </h1> */}
 
@@ -63,7 +63,7 @@ export const SaveGamePage = () => {
           </Box>
         ))}
       </Grid>
-    </>
+    </div>
   );
 };
 
