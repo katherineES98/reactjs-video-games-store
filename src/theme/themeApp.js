@@ -6,10 +6,10 @@ export const themeApp = createTheme({
     primary: {
       main: "#262254",
       white: "#ffffff",
+      linear: "#4df0e0"
     },
     secondary: {
-      main: "#543884",
-      linear: "#2b273c",
+      main: "#48337b", 
       tranparent: "transparent",
     },
     tertiary: {

@@ -20,6 +20,7 @@ export const NavBar = () => {
   const status = useCheckAuth();
   return (
     <AppBar
+    className="nav-bar"
       position="fixed"
       sx={{
         backgroundColor:
@@ -39,7 +40,11 @@ export const NavBar = () => {
           <MenuOutlined />
         </IconButton>
         <Grid container alignItems="start">
-          <Typography variant="h6" noWrap component="div">
+          <Typography  sx={{
+        fontFamily: "Barlow,sans-serif",
+        fontWeight: "bold",
+
+      }} className="text-name"  variant="h6" noWrap component="div">
             {displayName}
           </Typography>
         </Grid>

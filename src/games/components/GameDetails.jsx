@@ -78,7 +78,7 @@ export const GameDetails = ({ game, stores, gameID }) => {
               {game.cheapestPriceEver.price},
             </Typography>
             <Typography className="text-date ">
-              Date: {getDate(new Date(game.cheapestPriceEver.date))}
+              Date: {getDate(game.cheapestPriceEver.date)}
             </Typography>
 
             {/* <Link href="#" variant="body2" className="link-back" to="/savegames">

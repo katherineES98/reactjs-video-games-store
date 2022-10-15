@@ -8,11 +8,14 @@ import { PaginacionGame } from "../../components/PaginacionGame";
 import Stack from "@mui/material/Stack";
 
 import CircularProgress from "@mui/material/CircularProgress";
+
 import "./styles.css";
 
 
 
 export const GamePage = () => {
+
+
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -49,9 +52,10 @@ export const GamePage = () => {
       getDataGame();
     }
   }, [currentPage]);
-
+  document.body.style = 'background:#ECF0F1 ';
   return (
-    <>
+    <div className="body-games">
+  
       <Grid container className="input-search">
         <NavBar />
 
@@ -91,6 +95,6 @@ export const GamePage = () => {
           </Grid>
         )}
       </Grid>
-    </>
+    </div>
   );
 };

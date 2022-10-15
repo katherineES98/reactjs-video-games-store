@@ -49,16 +49,27 @@ export const CardGames = ({
             title="Contemplative Reptile"
             onError={setDefaultImage}
           />
-          <CardContent>
-            <Typography gutterBottom variant="p" component="p" mr="5">
-              {external}
-            </Typography>
+          <CardContent sx={{ height: 85 }}>
+            <div>
+              <Typography sx={{fontWeight: "bold"}}  gutterBottom variant="p" component="p" mr="5">
+                {external}
+              </Typography>
+            </div>
+
             <Typography variant="body2" color="textSecondary" component="p">
-              cheapest: {dollars}{cheapest}
+              <span>
+                {" "}
+                Cheapest: {dollars}
+                {cheapest}
+              </span>
+               {
+                date ? <span className="date" > Date: {date} </span> : undefined
+               }
+            
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
+            {/* <Typography variant="body2" color="textSecondary" component="p">
               {date}
-            </Typography>
+            </Typography> */}
           </CardContent>
         </CardActionArea>
         <CardActions>
