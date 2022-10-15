@@ -14,6 +14,8 @@ import "./styles.css";
 
 
 export const GamePage = () => {
+
+
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -50,7 +52,7 @@ export const GamePage = () => {
       getDataGame();
     }
   }, [currentPage]);
-  document.body.style = 'background:#ECF0F1';
+  document.body.style = 'background:#ECF0F1 ';
   return (
     <div className="body-games">
   

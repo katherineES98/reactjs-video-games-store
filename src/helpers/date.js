@@ -1,5 +1,10 @@
-import { DateTime } from "luxon";
+// import { DateTime } from "luxon";
+
+// export const getDate = (date) => {
+//   return DateTime.fromJSDate(date).toFormat("dd-MM-yyyy");
+// };
 
 export const getDate = (date) => {
-  return DateTime.fromJSDate(date).toFormat("dd-MM-yyyy");
+  const dateGames = new Date(date * 1000).toLocaleDateString("en-US");
+  return dateGames;
 };
