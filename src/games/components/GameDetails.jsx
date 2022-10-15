@@ -16,8 +16,8 @@ export const GameDetails = ({ game, stores, gameID }) => {
   const dollars = "$";
   const navigate = useNavigate();
 
-  console.log("id", { gameID });
-  console.log("game", { game });
+  // console.log("id", { gameID });
+  // console.log("game", { game });
   //const [loading, setLoading] = useState(false);
   // const { buttonLoading } = useSelector((state) => state.games);
 
@@ -109,6 +109,7 @@ export const GameDetails = ({ game, stores, gameID }) => {
       </Grid>
 
       {/* ofertas */}
+
 
       <Typography className="title-store">
         Stores with available game offers
