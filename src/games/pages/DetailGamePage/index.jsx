@@ -15,22 +15,13 @@ export const DetailGamePage = () => {
   const { game, isLoadingDetail, stores } = useSelector(
     (state) => state.detail
   );
-  console.log("estan son las tiendas",{ stores });
+  // console.log("estan son las tiendas",{ stores });
   //console.log({ game });
   //console.log(" estas en este juego al hacer click", game, "con el id", id);
   //console.log({ gameID });
   useEffect(() => {
     dispatch(getGame(gameID));
   }, []);
-
-  // { game.map((gam) => (
-  //     console.log(gam)
-  // ))}
-
-
-  //console.log("aqui",stor)
-
-  // return  heroes.find(hero=> hero.id===id )
 
   return (
     <>
@@ -46,9 +37,9 @@ export const DetailGamePage = () => {
           <CircularProgress color="secondary" />
         </Stack>
       ) : (
-        <GameDetails game={game} stores={stores} gameID={gameID}  />
+        <GameDetails game={game} stores={stores} gameID={gameID} />
       )}
     </>
-    // 
+    //
   );
 };

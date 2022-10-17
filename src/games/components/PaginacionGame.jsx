@@ -4,10 +4,11 @@ import { dataForPage } from "../../store/game";
 
 
 export const PaginacionGame = ({numberOfPages,eventPage}) => {
+  
   return (
     <div className="pagination">
       <Pagination
-        count={numberOfPages/dataForPage}
+        count={numberOfPages/dataForPage} 
         variant="outlined"
         color="secondary"
         onChange={(value,index)=>{eventPage(index)}}
