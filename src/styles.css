@@ -1,26 +1,24 @@
-.titlePrimary{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    color: white;
-    height: 100vh;
-
-    
-   
-
+.titlePrimary {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  color: white;
+  height: 100vh;
 }
 
-.card{
-   background-color: aqua;
+.card {
+  background-color: aqua;
 }
 
-/* .clumnas{
-display: flex;
-style: {{textAlign: 'center'}} 
-flex-direction:column;
-} */
+.form-search {
+  text-align: center !important;
+}
 
-.form-search{
-   text-align: center !important;
+.form-valid{
+   display: flex!important;
+   align-items: center!important;
+  justify-content: center!important;
+  margin-top: 20px;
+
 }
