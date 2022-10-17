@@ -57,7 +57,7 @@ export const GameDetails = ({ game, stores, gameID }) => {
   return (
     <>
       {/**detalles juego */}
-      <Grid container sx={{ mt: 10 }}>
+      <Grid container sx={{ mt: 10, padding:5 }}>
         <Grid item xs={12} sm={6}>
           <Box className="img-content" sx={{ mt: 2 }}>
             <img
@@ -81,11 +81,6 @@ export const GameDetails = ({ game, stores, gameID }) => {
               Date: {getDate(game.cheapestPriceEver.date)}
             </Typography>
 
-            {/* <Link href="#" variant="body2" className="link-back" to="/savegames">
-             <Button  onClick={saveGamesUser} className="btn-back ov-btn-grow-spin" variant="outlined">
-              Save
-            </Button>
-            </Link> */}
             <Button
               onClick={saveGamesUser}
               className="btn-back ov-btn-grow-spin"
@@ -109,7 +104,6 @@ export const GameDetails = ({ game, stores, gameID }) => {
       </Grid>
 
       {/* ofertas */}
-
 
       <Typography className="title-store">
         Stores with available game offers

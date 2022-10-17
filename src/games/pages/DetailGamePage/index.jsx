@@ -23,15 +23,6 @@ export const DetailGamePage = () => {
     dispatch(getGame(gameID));
   }, []);
 
-  // { game.map((gam) => (
-  //     console.log(gam)
-  // ))}
-
-
-  //console.log("aqui",stor)
-
-  // return  heroes.find(hero=> hero.id===id )
-
   return (
     <>
       {/* <h1>DetailGamePage</h1> */}
@@ -46,9 +37,9 @@ export const DetailGamePage = () => {
           <CircularProgress color="secondary" />
         </Stack>
       ) : (
-        <GameDetails game={game} stores={stores} gameID={gameID}  />
+        <GameDetails game={game} stores={stores} gameID={gameID} />
       )}
     </>
-    // 
+    //
   );
 };

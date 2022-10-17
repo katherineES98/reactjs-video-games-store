@@ -11,13 +11,10 @@ import CircularProgress from "@mui/material/CircularProgress";
 
 import "./styles.css";
 
-
-
 export const GamePage = () => {
-
-
   const dispatch = useDispatch();
   const [currentPage, setCurrentPage] = useState(1);
+  // console.log({currentPage})
 
   const { page, games, searchGames, isLoading } = useSelector(
     (state) => state.games
@@ -28,22 +25,27 @@ export const GamePage = () => {
   };
 
   const getDataForPage = (data, activePage) => {
+    //  console.log("----------primera presion=---")
+    // console.log("aqui",data)
+
     if (data.length > dataForPage) {
       const arreglo = data.slice(
-        dataForPage * activePage - dataForPage,
-        dataForPage * activePage
+        dataForPage * activePage - dataForPage, //0
+        dataForPage * activePage //10
       );
+
+      // console.log({arreglo})
       return arreglo;
     } else {
+      // console.log({ data });
       return data;
     }
   };
 
-
   useEffect(() => {
     getDataGame();
   }, [searchGames]);
-
+  console.log({ games });
   useEffect(() => {
     if (
       games.length % dataForPage === 0 &&
@@ -52,10 +54,9 @@ export const GamePage = () => {
       getDataGame();
     }
   }, [currentPage]);
-  document.body.style = 'background:#ECF0F1 ';
+  document.body.style = "background:#ECF0F1 ";
   return (
     <div className="body-games">
-  
       <Grid container className="input-search">
         <NavBar />
 

@@ -8,7 +8,7 @@ import { reset, setSearchGames } from "../../store/game";
 
 export const SearchGames = () => {
   const textSearch = useSelector((state) => state.games.searchGames);
-  console.log({textSearch})
+  // console.log({ textSearch });
   // const navigate = useNavigate();
 
   //const navigate=useNavigate();
@@ -24,8 +24,6 @@ export const SearchGames = () => {
 
   // console.log({ searchText });
 
-
-
   const onSearchSubmit = (event) => {
     event.preventDefault();
 
@@ -35,8 +33,6 @@ export const SearchGames = () => {
     // navigate(`?q=${searchText}`);
     dispatch(setSearchGames({ searchGames: searchText }));
   };
-
-
 
   return (
     <form onSubmit={onSearchSubmit}>
