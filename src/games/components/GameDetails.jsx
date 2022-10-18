@@ -57,7 +57,7 @@ export const GameDetails = ({ game, stores, gameID }) => {
   return (
     <>
       {/**detalles juego */}
-      <Grid container sx={{ mt: 10, padding:5 }}>
+      <Grid container sx={{ mt: 10, padding: 5 }}>
         <Grid item xs={12} sm={6}>
           <Box className="img-content" sx={{ mt: 2 }}>
             <img
@@ -88,17 +88,6 @@ export const GameDetails = ({ game, stores, gameID }) => {
             >
               Save
             </Button>
-
-            {/* <LoadingButton
-              color="secondary"
-              onClick={saveGamesUser}
-              loading={buttonLoading}
-              loadingPosition="start"
-              startIcon={<SaveIcon />}
-              variant="contained"
-            >
-              Save
-            </LoadingButton> */}
           </Box>
         </Grid>
       </Grid>
@@ -106,7 +95,8 @@ export const GameDetails = ({ game, stores, gameID }) => {
       {/* ofertas */}
 
       <Typography className="title-store">
-        Stores with available game offers
+        {/* Stores with available game offers */}
+        Available stores that the game is on sale {game.info.title}
       </Typography>
 
       {/* border={2} */}

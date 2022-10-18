@@ -8,6 +8,7 @@ export const PaginacionGame = ({numberOfPages,eventPage}) => {
   return (
     <div className="pagination">
       <Pagination
+      //cantidad debotones que me moestrara ,
         count={numberOfPages/dataForPage} 
         variant="outlined"
         color="secondary"
@@ -16,7 +17,3 @@ export const PaginacionGame = ({numberOfPages,eventPage}) => {
     </div>
   );
 };
-
-// display: flex!important;
-//     align-items: center!important;
-//     justify-content: center!important;

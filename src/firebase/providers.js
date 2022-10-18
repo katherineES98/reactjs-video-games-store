@@ -1,6 +1,12 @@
 //proveedor de los servicios de autenticacion
 import { ErrorOutlineTwoTone } from "@mui/icons-material";
-import { createUserWithEmailAndPassword, GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  GoogleAuthProvider,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  updateProfile,
+} from "firebase/auth";
 import { FirebaseAuth } from "./config";
 
 const googleProvider = new GoogleAuthProvider();
@@ -12,7 +18,7 @@ export const singInWithGoogle = async () => {
     //const credentials = GoogleAuthProvider.credentialFromResult(result);
     // console.log({ credentials });
     return {
-      ok: true, 
+      ok: true,
       displayName,
       email,
       photoURL,
@@ -30,16 +36,24 @@ export const singInWithGoogle = async () => {
 };
 
 //proveedor de auntenticacion con contrasena y email
-export const registerUserWithEmailPassword = async ({ email,password, displayName,}) => {
+export const registerUserWithEmailPassword = async ({
+  email,
+  password,
+  displayName,
+}) => {
   try {
-   // console.log({email, password, displayName})
+    // console.log({email, password, displayName})
     //llegar a firebase
-    const resp = await createUserWithEmailAndPassword(FirebaseAuth,email,password);
+    const resp = await createUserWithEmailAndPassword(
+      FirebaseAuth,
+      email,
+      password
+    );
     const { uid, photoURL } = resp.user;
-   // console.log(resp);
-  //Actualizar en firebase 
-  //FirebaseAuth.currentUser --> obtengo el usuario actual que esta logiado, actaulizando el displayname
-  await updateProfile(FirebaseAuth.currentUser,{displayName})
+    // console.log(resp);
+    //Actualizar en firebase
+    //FirebaseAuth.currentUser --> obtengo el usuario actual que esta logiado, actaulizando el displayname
+    await updateProfile(FirebaseAuth.currentUser, { displayName });
 
     return {
       ok: true,
@@ -49,35 +63,34 @@ export const registerUserWithEmailPassword = async ({ email,password, displayNam
       displayName,
     };
   } catch (error) {
-    //console.log(error)
-    //Este error se mostrara en la pantalla
-    return { ok: false, errorMessage: error.message };
+    return {
+      ok: false,
+      errorMessage: "The email you are trying to register is already in use",
+    };
   }
 };
 
+export const loginEmailPassword = async ({ email, password }) => {
+  try {
+    const resp = await signInWithEmailAndPassword(
+      FirebaseAuth,
+      email,
+      password
+    );
+    const { uid, photoURL, displayName } = resp.user;
+    return {
+      ok: true,
+      uid,
+      photoURL,
+      displayName,
+    };
+  } catch (error) {
+    // errorMessage: error.message
+    return { ok: false, errorMessage: "Wrong authentication/password" };
+  }
+};
 
-export const loginEmailPassword = async({ email,password,})=>{
- 
-
- try {
-  
-  const resp = await signInWithEmailAndPassword(FirebaseAuth,email,password);
-  const { uid, photoURL,displayName } = resp.user;
-  return {
-    ok: true,
-    uid,
-    photoURL,
-    displayName,
-  };
- } catch (error) {
-  return { ok: false, errorMessage: error.message };
- }
-
-
-}
-
-
-//funcion de cerrar sesion 
+//funcion de cerrar sesion
 export const logoutFirebase = async () => {
-  return await FirebaseAuth.signOut()  // esto cierra google, firebase etc 
-}
+  return await FirebaseAuth.signOut(); // esto cierra google, firebase etc
+};

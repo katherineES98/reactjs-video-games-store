@@ -25,9 +25,6 @@ export const GamePage = () => {
   };
 
   const getDataForPage = (data, activePage) => {
-    //  console.log("----------primera presion=---")
-    // console.log("aqui",data)
-
     if (data.length > dataForPage) {
       const arreglo = data.slice(
         dataForPage * activePage - dataForPage, //0
@@ -85,6 +82,7 @@ export const GamePage = () => {
       )}
 
       <Grid sx={{ marginTop: 10 }} container justifyContent="center">
+        {/* parte me muestra los 10 elementos que tenes deacuerdo al boton que presionastes  */}
         {getDataForPage(games, currentPage).map((game) => (
           <Box key={game.gameID} className="card-pruea" width="300px">
             <CardGames {...game} />

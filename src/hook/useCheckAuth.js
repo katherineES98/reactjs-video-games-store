@@ -8,7 +8,6 @@ export const useCheckAuth = () => {
   //validacion si esta autenticado o no para mostrar el spinner
   const { status } = useSelector((state) => state.auth);
 
-  //dispath del usuario ppara que se autentique
   const dispatch = useDispatch();
 
   // pediente de la autenticacion
@@ -16,7 +15,6 @@ export const useCheckAuth = () => {
     //estado de la autenticacion cambie
 
     onAuthStateChanged(FirebaseAuth, async (user) => {
-      //console.log(user)
       if (!user) return dispatch(logout());
 
       const { uid, email, displayName, photoURL } = user;
@@ -25,8 +23,5 @@ export const useCheckAuth = () => {
     });
   }, []);
 
-  return status //autenticado o no 
-  
-  
-
+  return status; //autenticado o no
 };
