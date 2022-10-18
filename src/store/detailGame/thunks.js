@@ -1,7 +1,6 @@
 import { cheapSharkGameApi } from "../../api/cheapSharkGameApi";
 import { formatData } from "../../helpers";
 
-
 import { setGamesDetail, setIsLoadingDetail, setStores } from "./detailSlice";
 
 export const getGame = (id) => {
@@ -10,20 +9,16 @@ export const getGame = (id) => {
       dispatch(setIsLoadingDetail({ isLoadingDetail: true }));
       const { data } = await cheapSharkGameApi.get(`/games?id=${id}`);
       const response = await cheapSharkGameApi.get(`/stores`);
-
+      console.log({ response });
       const format = formatData(response.data, data.deals);
+      console.log({ format });
       dispatch(setStores({ stores: format }));
 
       dispatch(setGamesDetail({ game: data }));
     } catch (error) {
       console.log(error);
-    } finally{
+    } finally {
       dispatch(setIsLoadingDetail({ isLoadingDetail: false }));
     }
   };
 };
-
-
-
-
-

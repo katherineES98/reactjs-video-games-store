@@ -7,7 +7,6 @@ import {
 import { reset } from "../game";
 import { checkingCredentials, logout, login } from "./";
 
-
 export const checkingAuthentication = (email, password) => {
   return async (dispatch) => {
     //Accion
@@ -40,7 +39,6 @@ export const startRegisterUserWithEmailPassword = ({
     if (!ok) return dispatch(logout({ errorMessage }));
     //sale bien, se loguea el usuario y cambia el status a auntheticated
     dispatch(login({ uid, displayName, email, photoURL }));
-    //console.log(resp)
   };
 };
 
@@ -56,7 +54,7 @@ export const startLoginEmailPassword = ({ email, password }) => {
 export const startLogout = () => {
   return async (dispatch) => {
     await logoutFirebase();
-    dispatch(reset())
+    dispatch(reset());
     dispatch(logout());
   };
 };

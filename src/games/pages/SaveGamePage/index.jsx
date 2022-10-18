@@ -12,7 +12,6 @@ export const SaveGamePage = () => {
   const dispatch = useDispatch();
   const { saveGames, isLoading } = useSelector((state) => state.games);
 
-  
   useEffect(() => {
     dispatch(getDataSaveGames());
   }, []);
@@ -50,7 +49,6 @@ export const SaveGamePage = () => {
 
       <Grid sx={{ marginTop: 10 }} container justifyContent="center">
         {saveGames.map((save) => (
-        
           <Box key={save.id} className="card-pruea" width="300px">
             <CardGames
               thumb={save.game.info.thumb}
@@ -58,7 +56,6 @@ export const SaveGamePage = () => {
               cheapest={save.game.cheapestPriceEver.price}
               date={getDate(new Date(save.game.cheapestPriceEver.date))}
               showButton={false}
-           
             />
           </Box>
         ))}
@@ -66,28 +63,3 @@ export const SaveGamePage = () => {
     </div>
   );
 };
-
-// <Box  className="card-pruea" width="300px">
-{
-  /* <CardGames  /> */
-}
-
-// <ul>
-//   <li> {save.game.info.title}</li>
-//   <li> {save.game.info.thumb}</li>
-//   <li> {save.game.cheapestPriceEver.date}</li>
-// </ul>  // thumb, cheapest, external,
-//{save.game.cheapestPriceEver.price}
-
-//   <Grid sx={{ marginTop: 10 }} container justifyContent="center">
-//   {getDataForPage(games, currentPage).map((game) => (
-//     <Box key={game.gameID} className="card-pruea" width="300px">
-//       <CardGames {...game} />
-//     </Box>
-//   ))}
-//   {games.length > 0 && (
-//     <Grid container>
-//       <PaginacionGame eventPage={setCurrentPage} numberOfPages={page} />
-//     </Grid>
-//   )}
-// </Grid>

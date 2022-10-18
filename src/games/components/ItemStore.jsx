@@ -1,14 +1,4 @@
-import {
-  Box,
-  Card,
-  CardContent,
-  CardMedia,
-  Grid,
-  IconButton,
-  ImageListItem,
-  ImageListItemBar,
-  Typography,
-} from "@mui/material";
+import { IconButton, ImageListItem, ImageListItemBar } from "@mui/material";
 import React from "react";
 
 const dollars = "$";
@@ -21,8 +11,6 @@ export const ItemStore = ({
   retailPrice,
   savings,
 }) => {
-  //  console.log(import.meta.env.VITE_API_IMG_URL + images.logo )
- // console.log(images);
   return (
     <ImageListItem className="border-img">
       <img
@@ -37,7 +25,7 @@ export const ItemStore = ({
         className="img-store"
       />
 
-      <ImageListItemBar
+      <ImageListItemBar sx={{paddingLeft:2}}
         //
 
         title={
@@ -76,9 +64,13 @@ export const ItemStore = ({
           background:
             "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, " +
             "rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
-            borderRadius:2
+          borderRadius: 2,
         }}
-        title={<span><b>{storeName}</b></span>}
+        title={
+          <span>
+            <b>{storeName}</b>
+          </span>
+        }
         position="top"
         actionIcon={
           <IconButton sx={{ color: "white" }} aria-label={`star ${storeName}`}>

@@ -5,8 +5,8 @@ const initialState = {
   games: [],
   searchGames: "batman",
   isLoading: false,
-  saveGames:[],
-  buttonLoading: false
+  saveGames: [],
+  buttonLoading: false,
 };
 
 export const gameSlice = createSlice({
@@ -37,5 +37,12 @@ export const gameSlice = createSlice({
   },
 });
 
-export const { reset, setGames, setPage, setSearchGames, setIsLoading,setSaveGamesState, setButtonLoading } =
-  gameSlice.actions;
+export const {
+  reset,
+  setGames,
+  setPage,
+  setSearchGames,
+  setIsLoading,
+  setSaveGamesState,
+  setButtonLoading,
+} = gameSlice.actions;

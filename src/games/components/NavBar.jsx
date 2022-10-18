@@ -37,7 +37,7 @@ export const NavBar = () => {
           edge="start"
           sx={{ mr: 2, display: { sm: "none" } }}
         >
-          <MenuOutlined />
+          {/* <MenuOutlined /> */}
         </IconButton>
         <Grid container alignItems="start">
           <Typography  sx={{

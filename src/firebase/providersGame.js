@@ -13,7 +13,7 @@ export const saveGames = async (params) => {
   //where("state", "==", "CO"), where("name", "==", "Denver")
   //const q1 = query(citiesRef, where("userId", "==", FirebaseAuth.currentUser.uid), where("gameID", "==", gameID));
   const docRef = doc(collection(FirebaseDB, "games"));
- 
+
   const q1 = query(
     collection(FirebaseDB, "games"),
     where("userId", "==", FirebaseAuth.currentUser.uid),
@@ -46,7 +46,6 @@ export const getSaveGames = async () => {
     const data = [];
 
     queryGames.forEach((doc) => {
-      //console.log(`${doc.id} => ${doc.data()}`);
       data.push({ ...doc.data(), id: doc.id });
     });
 

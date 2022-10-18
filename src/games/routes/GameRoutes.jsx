@@ -4,8 +4,6 @@ import { GameDetails } from "../components/GameDetails";
 import { DetailGamePage } from "../pages/DetailGamePage";
 import { GamePage } from "../pages/GamePage";
 import { SaveGamePage } from "../pages/SaveGamePage";
-//import { WelcomePage } from "../pages/WelcomePage";
-
 
 {
   /**rutas hijas  */
@@ -16,8 +14,7 @@ export const GameRoutes = () => {
       <Route path="/" element={<GamePage />} />
       <Route path="/detail/:gameID" element={<DetailGamePage />} />
       <Route path="/savegames" element={<SaveGamePage />} />
-      //!DUDA de rutas
-       {/* <Route path="/*" element={<WelcomePage />} /> */}
+
       {/**si no estoy en la ruta anterior sera esta  */}
       <Route path="/*" element={<Navigate to="/" />} />
     </Routes>

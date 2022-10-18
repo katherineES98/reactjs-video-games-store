@@ -1,15 +1,12 @@
 import { cheapSharkGameApi } from "../../api/cheapSharkGameApi";
 import { getSaveGames, saveGames } from "../../firebase/providersGame";
 import {
-  setButtonLoading,
   setGames,
   setIsLoading,
   setPage,
   setSaveGamesState,
 } from "./gameSlice";
-//import { Navigate } from "react-router-dom";
 
-//import {  Navigate, useNavigate, } from "react-router-dom";
 export const dataForPage = 10;
 
 // function component(){
@@ -27,9 +24,8 @@ export const getGames = (page, textSearch) => {
         `/games?title=${textSearch}&limit=${page}&exact=0`
       );
 
-      //console.log({data})
       if (data.length % dataForPage === 0) {
-        dispatch(setPage({ page: page + dataForPage }));
+        dispatch(setPage({ page: page + dataForPage })); //setaer la segunda lectura 10 + daraforpage + 10 = 20 la page estara en 20
       }
       dispatch(setGames({ games: data }));
     } catch (error) {
@@ -48,7 +44,7 @@ export const setSaveGames = (paramsGame) => {
     // dispatch(setButtonLoading({ buttonLoading: true }));
     try {
       const responseSaveGame = await saveGames(paramsGame);
-      
+
       if (responseSaveGame === null) {
         response = false;
       } else {

@@ -15,16 +15,18 @@ import { useForm } from "../../hook";
 import {  startGoogleSignIn, startLoginEmailPassword } from "../../store/auth";
 import { Alert } from "@mui/material";
 
+const formData={
+  email: '',
+  password: '',
+}
+
 export const LoginPage = () => {
 
   const { status, errorMessage } = useSelector((state) => state.auth);
   //dispatch
   const dispatch = useDispatch();
   //Formulario  que es lo que deseo que tenga
-  const { email, password, onInputChange, formState } = useForm({
-    email: '',
-    password: '',
-  });
+  const { email, password, onInputChange, formState } = useForm(formData);
   const isAuthehticating = useMemo(() => status === "checking", [status]);
 
   const onSubmit = (event) => {

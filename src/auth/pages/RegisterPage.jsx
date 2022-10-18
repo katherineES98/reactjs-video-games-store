@@ -15,6 +15,7 @@ import { useMemo } from 'react';
 import { useState } from 'react';
 import { startRegisterUserWithEmailPassword } from "../../store/auth";
 import { Alert } from "@mui/material";
+import "../../styles.css"
 
 
 const formData={
@@ -175,7 +176,12 @@ export const RegisterPage = () => {
                   >
                     {"Already have an account? Sign in"}
                   </Link>
-                  <h3> Form valid { isFormValid? 'Valid': 'Incorrecto' }</h3>
+                  <div className="form-valid">
+                  <h3  > Form { isFormValid? 'Valid': 'incorrect' }</h3>
+                  </div>
+
+                 
+ 
                 </Grid>
               </Grid>
             </Grid>
