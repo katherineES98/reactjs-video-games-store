@@ -11,13 +11,14 @@ const firebaseConfig = {
     storageBucket:import.meta.env.VITE_STORAGE_BUCKET,
     messagingSenderId:import.meta.env.VITE_MESSAGING_SENDER_ID,
     appId:import.meta.env.VITE_APP_ID,
-    databaseURL: "https://reactjs-video-games-store.firebaseio.com",
+    databaseURL: import.meta.env.VITE_DATABASEURL
+
   };
 
 
 
   // Initialize Firebase
 export const FirebaseApp = initializeApp(firebaseConfig);
-console.log(FirebaseApp.name);
+//console.log(FirebaseApp.name);
 export const FirebaseAuth= getAuth(FirebaseApp);
 export const FirebaseDB= getFirestore(FirebaseApp)
