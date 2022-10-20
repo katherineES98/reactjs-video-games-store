@@ -3,7 +3,7 @@
   background-size: cover;
   width: 350px;
   height: 350px;
-  border: #f0f0f0 8px outset;
+
 }
 .contenedor {
   position: relative;
@@ -42,24 +42,18 @@
 }
 
 .text-date {
-  padding-left: 10px;
-  font-size: 18px !important;
+ 
+  margin-top: 5px;
 }
 .text-price {
 
   font-size: 20px !important;
   margin-top: 10px!important;
 }
-.text-date {
-  font-size: 20px !important;
-  margin-top: 10px!important;
-}
 
-/* .css-4go8ts-MuiPaper-root-MuiCard-root{
-    margin-top: 15px;
- 
-    
-} */
+.MuiImageListItemBar-titleWrap{
+  padding: 15px!important;
+}
 .title-store {
 
 -webkit-background-clip: text!important;
@@ -67,7 +61,7 @@
     -webkit-text-fill-color: transparent;
     font-size: 30px !important;
     padding-left: 20px;
-    margin-top: 70px !important;
+    margin-top: 30px !important;
     margin-bottom: 30px !important;
     display: flex;
   align-items: center;
@@ -97,8 +91,28 @@
 .img-content{
   display: flex;
     justify-content: center;
+    margin-top: 20px;
+   
 }
 
+.conte{
+  /* background-color:gainsboro; */
+  border: #f0f0f0 8px outset;
+}
+
+ 
+
+
+/* margin-right: 10px;
+margin-bottom: 20px;
+} */
+
+
+ 
+
+.tit{
+  background-color: #48337b;
+}
 .box{
 
   border-color:#0a4f90!important;
@@ -127,6 +141,9 @@
   z-index: 1;
   overflow: hidden;
   display: inline-block;
+  margin-right: 10px!important;
+  margin-bottom: 20px!important;
+
 }
 .ov-btn-grow-spin:hover {
   color: #fff;/* color de fuente hover */
@@ -181,15 +198,16 @@
   height: 350px!important;}
 
 
-
-
-  /* -webkit-background-clip: text!important;
-     background-clip: text!important;
-    -webkit-text-fill-color: transparent;
-    width: 500px!important;
-    font-size: 70px!important;
-    background: linear-gradient( 135deg, #ffffff, #4ccfce );
-    display: flex!important;
-    justify-content: center!important;
-    align-items: center!important; */
-
+   
+    
+    /* margin: 0 auto!important;
+    padding: 12px; */
+    .card-store{
+      background: #f4f4f2!important;
+      border: 1px rgb(77, 240, 224) solid!important;
+    }
+    .class-img{
+       width: 150px!important;
+       margin: 0 auto!important;
+    padding: 12px;
+    }

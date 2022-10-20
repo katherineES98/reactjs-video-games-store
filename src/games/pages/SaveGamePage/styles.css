@@ -6,6 +6,22 @@
 
 .date{margin-left: 10px!important;}
 
-.game-save{
-    margin-top: 150px;
+
+.title-library{
+    -webkit-background-clip: text!important;
+    background-clip: text!important;
+   -webkit-text-fill-color: transparent;
+   font-size: 30px !important;
+   padding-left: 20px;
+   margin-top: 100px !important;
+   margin-bottom: 30px !important;
+   display: flex;
+ align-items: center;
+ justify-content: center;
+   background: linear-gradient( 135deg, #48337b, #2d2d2d   );
+   font-weight:"bold"!important;
+   font-family:"Barlow,sans-serif"!important;
+   border: rgb(77, 240, 224) 4px outset;
+   padding: 15px;
+   /* border: 1px rgb(77, 240, 224) outset!important; */
 }

@@ -1,8 +1,8 @@
 import {
   AppBar,
-  Button,
+
   Grid,
-  IconButton,
+
   Toolbar,
   Typography,
 } from "@mui/material";
@@ -32,13 +32,7 @@ export const NavBar = () => {
       }}
     >
       <Toolbar>
-        <IconButton
-          color="inherit"
-          edge="start"
-          sx={{ mr: 2, display: { sm: "none" } }}
-        >
-          {/* <MenuOutlined /> */}
-        </IconButton>
+       
         <Grid container alignItems="start">
           <Typography  sx={{
         fontFamily: "Barlow,sans-serif",

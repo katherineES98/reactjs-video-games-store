@@ -1,4 +1,4 @@
-import { CircularProgress, Grid, Stack } from "@mui/material";
+import { CircularProgress, Grid, Stack, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -22,7 +22,6 @@ export const SaveGamePage = () => {
       {/* <h1> Save Game </h1> */}
 
       <NavBar />
-
       {isLoading && (
         <Stack
           justifyContent="center"
@@ -47,7 +46,17 @@ export const SaveGamePage = () => {
         </Stack>
       )}
 
+        <Grid container >
+      
+        
+
+<Typography className="title-library">
+        {/* Stores with available game offers */}
+        My library of favorite games
+      </Typography>
+
       <Grid sx={{ marginTop: 10 }} container justifyContent="center">
+        
         {saveGames.map((save) => (
           <Box key={save.id} className="card-pruea" width="300px">
             <CardGames
@@ -60,6 +69,8 @@ export const SaveGamePage = () => {
           </Box>
         ))}
       </Grid>
+        </Grid>
+      
     </div>
   );
 };
