@@ -82,9 +82,7 @@ export const GameDetails = ({ game, stores, gameID }) => {
     }
   };
 
-  function hola() {
-    console.log("hola");
-  }
+  
 
   return (
     <>
@@ -111,7 +109,7 @@ export const GameDetails = ({ game, stores, gameID }) => {
                 }
                 subtitle={
                   <h2 className="text-date">
-                    {" "}
+               
                     Date: {getDate(game.cheapestPriceEver.date)}
                   </h2>
                 }
@@ -138,18 +136,6 @@ export const GameDetails = ({ game, stores, gameID }) => {
         Available stores that the game is on sale {game.info.title}
       </Typography>
 
-      {/* border={2} */}
-      {/* <Box className="galery-center">
-        <ImageList 
-        className={classes.imageList}
-        
-        // className="imagenlist"
-        sx={{ width: 750, height: 550 }} cols={3}>
-          {stores.map((store) => {
-            return <ItemStore key={store.storeID} {...store} />;
-          })}
-        </ImageList>
-      </Box> */}
       <Grid container sx={{ marginTop: 5 }} justifyContent="center">
         {stores.map((store) => {
           return (
@@ -160,7 +146,7 @@ export const GameDetails = ({ game, stores, gameID }) => {
               margin={1}
             >
              
-              <ItemStore {...store} />{" "}
+              <ItemStore {...store} />
             </Box>
           );
         })}
