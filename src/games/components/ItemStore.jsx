@@ -1,4 +1,19 @@
-import { IconButton, ImageListItem, ImageListItemBar } from "@mui/material";
+
+import {
+
+  Grid,
+  Box,
+  Typography,
+  ImageList,
+  Button,
+  ImageListItemBar,
+  IconButton,
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+ 
+} from "@mui/material";
 import React from "react";
 
 const dollars = "$";
@@ -12,73 +27,37 @@ export const ItemStore = ({
   savings,
 }) => {
   return (
-    <ImageListItem className="border-img">
-      <img
-        src={`${
-          import.meta.env.VITE_API_IMG_URL + images.logo
-        }?w=248&fit=crop&auto=format`}
-        srcSet={`${
-          import.meta.env.VITE_API_IMG_URL + images.logo
-        }?w=248&fit=crop&auto=format&dpr=2 2x`}
-        alt={storeName}
-        loading="lazy"
-        className="img-store"
-      />
+   <>
+   <Card className="card-store">
+      <CardActionArea>
+        <CardMedia
+          className="class-img"
+          component="img"
+         height="150" 
+          image={`${import.meta.env.VITE_API_IMG_URL + images.logo}`}
+          alt="green iguana"
+        />
 
-      <ImageListItemBar sx={{paddingLeft:2}}
-        //
 
-        title={
-          <ul>
-            <li>
-              {
-                <span>
-                  Price: {dollars}
-                  {price}{" "}
-                </span>
-              }
-            </li>
-            <li>
-              {
-                <span>
-                  Retail Price:{dollars}
-                  {retailPrice}{" "}
-                </span>
-              }
-            </li>
-            <li>
-              {
-                <span>
-                  Savings:{dollars}
-                  {savings}
-                </span>
-              }
-            </li>
-          </ul>
-        }
-        position="below"
-      />
 
-      <ImageListItemBar
-        sx={{
-          background:
-            "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, " +
-            "rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)",
-          borderRadius: 2,
-        }}
-        title={
-          <span>
-            <b>{storeName}</b>
-          </span>
-        }
-        position="top"
-        actionIcon={
-          <IconButton sx={{ color: "white" }} aria-label={`star ${storeName}`}>
-            {/* <StarBorderIcon /> */}
-          </IconButton>
-        }
-        actionPosition="left"
-      />
-    </ImageListItem>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+          {storeName}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+          Price: {dollars}{price}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+          Retail Price:{dollars}{retailPrice}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+          Savings:{dollars}{savings}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+    
+   
+   </>
   );
 };

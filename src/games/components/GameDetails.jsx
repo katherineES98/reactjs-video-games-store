@@ -1,4 +1,16 @@
-import { Grid, Box, Typography, ImageList, Button } from "@mui/material";
+import {
+  Grid,
+  Box,
+  Typography,
+  ImageList,
+  Button,
+  ImageListItemBar,
+  IconButton,
+  Card,
+  CardActionArea,
+  CardMedia,
+  CardContent,
+} from "@mui/material";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -9,10 +21,26 @@ import { ItemStore } from "./ItemStore";
 import LoadingButton from "@mui/lab/LoadingButton";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
-
+import { makeStyles } from "@material-ui/styles";
 import SaveIcon from "@mui/icons-material/Save";
 
+const useStyles = makeStyles({
+  imageList: {
+    flexWrap: "nowrap",
+    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
+    transform: "translateZ(0)",
+
+    // Hide Scrollbar
+    "-ms-overflow-style": "none" /* IE and Edge */,
+    "scrollbar-width": "none" /* Firefox */,
+    "&::-webkit-scrollbar": {
+      /* Chrome */ display: "none",
+    },
+  },
+});
+
 export const GameDetails = ({ game, stores, gameID }) => {
+  const classes = useStyles();
   const dollars = "$";
   const navigate = useNavigate();
 
@@ -50,45 +78,56 @@ export const GameDetails = ({ game, stores, gameID }) => {
       await alertSave("success", "Saved successfully, enjoy your game");
       navigate("/savegames");
     } else {
-      alertSave("error", "Error Save game");
+      alertSave("error", "This game already exists in your game library");
     }
   };
+
+  function hola() {
+    console.log("hola");
+  }
 
   return (
     <>
       {/**detalles juego */}
       <Grid container sx={{ mt: 10, padding: 5 }}>
-        <Grid item xs={12} sm={6}>
-          <Box className="img-content" sx={{ mt: 2 }}>
-            <img
-              src={game.info.thumb}
-              className="img-detail"
-              alt="hola"
-              loading="lazy"
-            />
-          </Box>
-        </Grid>
-        <Grid border={2} className="box" item xs={12} sm={6} sx={{ mt: 2 }}>
-          <Box className="container-title" border={2}>
-            <Typography className="text-title">{game.info.title}</Typography>
-          </Box>
-          <Box className="text-information">
-            <Typography className="text-price ">
-              Price: {dollars}
-              {game.cheapestPriceEver.price},
-            </Typography>
-            <Typography className="text-date ">
-              Date: {getDate(game.cheapestPriceEver.date)}
-            </Typography>
+        <Grid item xs={12} sm={12}>
+          <Typography className="text-title">{game.info.title}</Typography>
 
-            <Button
-              onClick={saveGamesUser}
-              className="btn-back ov-btn-grow-spin"
-              variant="outlined"
-            >
-              Save
-            </Button>
-          </Box>
+          <div className="img-content" sx={{ mt: 1 }}>
+            <div className="conte">
+              <img
+                src={game.info.thumb}
+                className="img-detail"
+                alt="hola"
+                loading="lazy"
+              />
+
+              <ImageListItemBar
+                title={
+                  <h3>
+                    Price: {dollars}
+                    {game.cheapestPriceEver.price}
+                  </h3>
+                }
+                subtitle={
+                  <h2 className="text-date">
+                    {" "}
+                    Date: {getDate(game.cheapestPriceEver.date)}
+                  </h2>
+                }
+                position="below"
+                actionIcon={
+                  <Button
+                    onClick={saveGamesUser}
+                    className="btn-back ov-btn-grow-spin"
+                    variant="outlined"
+                  >
+                    Save
+                  </Button>
+                }
+              />
+            </div>
+          </div>
         </Grid>
       </Grid>
 
@@ -100,13 +139,32 @@ export const GameDetails = ({ game, stores, gameID }) => {
       </Typography>
 
       {/* border={2} */}
-      <Box className="galery-center">
-        <ImageList sx={{ width: 750, height: 550 }} cols={3}>
+      {/* <Box className="galery-center">
+        <ImageList 
+        className={classes.imageList}
+        
+        // className="imagenlist"
+        sx={{ width: 750, height: 550 }} cols={3}>
           {stores.map((store) => {
             return <ItemStore key={store.storeID} {...store} />;
           })}
         </ImageList>
-      </Box>
+      </Box> */}
+      <Grid container sx={{ marginTop: 5 }} justifyContent="center">
+        {stores.map((store) => {
+          return (
+            <Box
+              className="card-store"
+              key={store.storeID}
+              width="250px"
+              margin={1}
+            >
+             
+              <ItemStore {...store} />{" "}
+            </Box>
+          );
+        })}
+      </Grid>
     </>
   );
 };
